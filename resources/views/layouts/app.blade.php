@@ -21,24 +21,33 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand">
+            <!-- <a href="/" class="navbar-brand">
                 <img class="navbar-brand-icon" src="/img/logo-alt.svg" alt=""/>
                 <img class="navbar-brand-name" src="/img/brand-alt.svg" alt="PatternFly Enterprise Application" />
-            </a>
+            </a> -->
         </div>
         <nav class="collapse navbar-collapse">
+
+            <!-- Magic -->
             {{--<ul class="nav navbar-nav">
                 <li>
                     <a href="#" target="_blank" class="nav-item-iconic nav-item-iconic-new-window"><span title="Launch" class="fa fa-external-link"></span></a>
                 </li>
             </ul>--}}
-            <ul class="nav navbar-nav navbar-right navbar-iconic">
+
+            <!-- Left side of navbar -->
+            <ul class="nav navbar-nav navbar-left navbar-iconic">
                 <li>
                     <a href="#">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Veterinary IS') }}
                     </a>
                 </li>
-                <li class="dropdown">
+            </ul>
+
+            <!-- Right side of navbar -->
+            <ul class="nav navbar-nav navbar-right navbar-iconic">
+                
+                <!-- <li class="dropdown">
                     <a class="dropdown-toggle nav-item-iconic" id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <span title="Notifications" class="fa pficon-flag"></span>
                         <span class="badge">2</span>
@@ -57,8 +66,8 @@
                             <a>Clear Messages</a>
                         </div>
                     </div>
-                </li>
-                <li class="dropdown">
+                </li> -->
+                <!-- <li class="dropdown">
                     <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <span title="Help" class="fa pficon-help"></span>
                         <span class="caret"></span>
@@ -67,12 +76,15 @@
                         <li><a href="#">Help</a></li>
                         <li><a href="#">About</a></li>
                     </ul>
-                </li>
+                </li> -->
 
+                <!-- User informations/Logged in -->
                 <li class="dropdown">
                     <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <span title="Username" class="fa pficon-user"></span>
-                        <span class="caret"></span>
+                        <span class="dropdown-title">
+                            {{ Auth::user()->name }} <b class="caret"></b>
+                        </span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         @if (Auth::guest())
@@ -95,97 +107,46 @@
         </nav>
     </nav> <!--/.navbar-->
 
+    <!-- Side navbar -->
     <div class="nav-pf-vertical nav-pf-vertical-with-sub-menus">
 
         <ul class="list-group">
             <li class="list-group-item active">
                 <a>
-                    <span class="fa fa-dashboard" data-toggle="tooltip" title="Dashboard"></span>
-                    <span class="list-group-item-value">Dashboard</span>
+                    <span class="fa pficon-home" data-toggle="tooltip" title="Dashboard"></span>
+                    <span class="list-group-item-value">System</span>
                 </a>
             </li>
             <li class="list-group-item">
                 <a>
-                    <span class="fa fa-shield" data-toggle="tooltip" title="Dolor"></span>
-                    <span class="list-group-item-value">Dolor</span>
+                    <span class="fa pficon-users" data-toggle="tooltip" title="Dolor"></span>
+                    <span class="list-group-item-value">Owners</span>
 
                 </a>
             </li>
-            <li class="list-group-item secondary-nav-item-pf" data-target="#ipsum-secondary">
-                <a>
-                    <span class="fa fa-space-shuttle" data-toggle="tooltip" title="Ipsum"></span>
-                    <span class="list-group-item-value">Ipsum</span>
-                </a>
-
-                <div id="ipsum-secondary" class="nav-pf-secondary-nav">
-                    <div class="nav-item-pf-header">
-                        <a class="secondary-collapse-toggle-pf" data-toggle="collapse-secondary-nav"></a>
-                        <span>Ipsum</span>
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item active " data-target="#ipsum-intellegam-tertiary">
-                            <a>
-                                <span class="list-group-item-value">Intellegam</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item " data-target="#ipsum-copiosae-tertiary">
-                            <a>
-                                <span class="list-group-item-value">Copiosae</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item " data-target="#ipsum-patrioque-tertiary">
-                            <a>
-                                <span class="list-group-item-value">Patrioque</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="list-group-item secondary-nav-item-pf" data-target="#amet-secondary">
-                <a>
-                    <span class="fa fa-paper-plane" data-toggle="tooltip" title="Amet"></span>
-                    <span class="list-group-item-value">Amet</span>
-                </a>
-                <div id="amet-secondary" class="nav-pf-secondary-nav">
-                    <div class="nav-item-pf-header">
-                        <a class="secondary-collapse-toggle-pf" data-toggle="collapse-secondary-nav"></a>
-                        <span>Amet</span>
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item " data-target="#amet-detracto-tertiary">
-                            <a>
-                                <span class="list-group-item-value">Detracto Suscipiantur</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item " data-target="#amet-mediocrem-tertiary">
-                            <a>
-                                <span class="list-group-item-value">Mediocrem</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item " data-target="#amet-corrumpit-tertiary">
-                            <a>
-                                <span class="list-group-item-value">Corrumpit Cupidatat Proident Deserunt</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
             <li class="list-group-item">
                 <a>
-                    <span class="fa fa-graduation-cap" data-toggle="tooltip" title="Adipscing"></span>
-                    <span class="list-group-item-value">Adipscing</span>
+                    <span class="fa fa-plus-square" data-toggle="tooltip" title="Lorem"></span>
+                    <span class="list-group-item-value">Medicines</span>
                 </a>
             </li>
             <li class="list-group-item">
                 <a>
-                    <span class="fa fa-gamepad" data-toggle="tooltip" title="Lorem"></span>
-                    <span class="list-group-item-value">Lorem</span>
+                    <span class="fa fa-paw" data-toggle="tooltip" title="Adipscing"></span>
+                    <span class="list-group-item-value">Animals</span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a>
+                    <span class="fa fa-medkit" data-toggle="tooltip" title="Lorem"></span>
+                    <span class="list-group-item-value">Treatment</span>
                 </a>
             </li>
         </ul>
-    </div>
-    <div class="container-fluid container-cards-pf container-pf-nav-pf-vertical" id="app">
+     </div> <!-- left side navbar -->
 
+    <!-- Content -->
+    <div class="container-fluid container-cards-pf container-pf-nav-pf-vertical" id="app">
         <div class="row row-cards-pf">
             @yield('content')
         </div>
