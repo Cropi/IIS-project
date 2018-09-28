@@ -46,7 +46,7 @@
 
             <!-- Right side of navbar -->
             <ul class="nav navbar-nav navbar-right navbar-iconic">
-                
+
                 <!-- <li class="dropdown">
                     <a class="dropdown-toggle nav-item-iconic" id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <span title="Notifications" class="fa pficon-flag"></span>
@@ -91,7 +91,8 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li><a href="#">{{ Auth::user()->name }} (settings)</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li class="divider"></li>
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     Logout
