@@ -11,6 +11,11 @@
     <link href="/css/patternfly.min.css" rel="stylesheet" type="text/css">
     <link href="/css/patternfly-additions.min.css" rel="stylesheet" type="text/css">
     <!--<link href="/css/so2platform/styles.css" rel="stylesheet" type="text/css">-->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <!-- Filtering -->
+    <script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/popper.min.js') }}"></script>
 </head>
 <body>
     <nav class="navbar navbar-pf-vertical">

@@ -22,3 +22,9 @@ Route::get('/{pattern}/{example}', function ($pattern, $example) {
 Route::get('/home', 'HomeController@index');
 
 Auth::routes();
+
+
+// Users
+Route::resource('users', 'UserController');
+Route::get('/user/ask-delete/{id}', 'UserController@askToDestory')->name('sidebaroptions.users.destroy-user-ask');
+Route::get('/user/edit/{id}', 'UserController@edit')->name('sidebaroptions.users.edit');
