@@ -117,10 +117,16 @@
     <div class="nav-pf-vertical nav-pf-vertical-with-sub-menus">
 
         <ul class="list-group">
-            <li class="list-group-item active">
-                <a>
+            <li class="list-group-item {{ Request::is('home') ? 'active' : '' }}">
+                <a href="{{ route('homes.index') }}">
                     <span class="fa pficon-home" data-toggle="tooltip" title="Dashboard"></span>
-                    <span class="list-group-item-value">System</span>
+                    <span class="list-group-item-value">Home</span>
+                </a>
+            </li>
+            <li class="list-group-item {{ Request::is('users') ? 'active' : '' }}">
+                <a href="{{ route('users') }}">
+                    <span class="fa pficon-user" data-toggle="tooltip" title="Users"></span>
+                    <span class="list-group-item-value">Users</span>
                 </a>
             </li>
             <li class="list-group-item">

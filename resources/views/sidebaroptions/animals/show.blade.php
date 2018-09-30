@@ -1,10 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
-
-
-<h1> Welcome </h1>
-
-
-
+    <h1>Animals</h1>
 @endsection
