@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\User;
-
 
 class UserController extends Controller
 {
@@ -16,8 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::get();
-        return view('sidebaroptions.users.show')->with('users', $users);
+        $data = [
+            'users' => User::get(),
+            'error' => (bool)"",
+        ];
+        return view('sidebar.users.show')->with('data', $data);
     }
 
     /**
@@ -60,7 +63,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('sidebaroptions.users.edit')->with('user', User::find($id));
+        return view('sidebar.users.edit')->with('user', User::find($id));
     }
 
     /**
@@ -75,12 +78,6 @@ class UserController extends Controller
         //
     }
 
-    public function askToDestory($id)
-    {
-        $user = User::find($id);
-        return view('sidebaroptions.users.destroy-user-ask')->with('user', $user);
-    }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -89,6 +86,23 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $isDestroyed = User::destroy($id);
+        $data = [
+            'users' => User::get(),
+            'error' => (bool)"",
+        ];
+        return view('sidebar.users.show')->with('data', $data);
+    }
+
+    public function askDelete($id)
+    {
+        if ($id == Auth::user()->id) {
+            $data = [
+                'users' => User::get(),
+                'error' => (bool)"1",
+            ];
+            return view('sidebar.users.show')->with('data', $data);
+        }
+        return view('sidebar.users.ask-delete')->with('user', User::find($id));
     }
 }

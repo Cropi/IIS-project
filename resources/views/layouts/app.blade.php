@@ -88,7 +88,7 @@
                     <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <span title="Username" class="fa pficon-user"></span>
                         <span class="dropdown-title">
-                            {{ Auth::user()->name }} <b class="caret"></b>
+                            {{ Auth::user()->email }} <b class="caret"></b>
                         </span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -118,17 +118,31 @@
 
         <ul class="list-group">
             <li class="list-group-item {{ Request::is('home') ? 'active' : '' }}">
-                <a href="{{ route('homes.index') }}">
+                <a href="{{URL::to('home')}}">
                     <span class="fa pficon-home" data-toggle="tooltip" title="Dashboard"></span>
                     <span class="list-group-item-value">Home</span>
                 </a>
             </li>
-            <li class="list-group-item {{ Request::is('users') ? 'active' : '' }}">
+            <li class="list-group-item {{ Request::is('users') ? 'active' : '' }} secondary-nav-item-pf" data-target="#ipsum-secondary">
                 <a href="{{ route('users') }}">
                     <span class="fa pficon-user" data-toggle="tooltip" title="Users"></span>
                     <span class="list-group-item-value">Users</span>
                 </a>
+
+                <div id="-secondary" class="nav-pf-secondary-nav">
+                    <div class="nav-item-pf-header">
+                        <a  class="secondary-collapse-toggle-pf" data-toggle="collapse-secondary-nav"></a>
+                        <span>Users</span>
+                    </div>
+                <ul class="list-group">
+                    <li class="list-group-item active " data-target="#ipsum-intellegam-tertiary">
+                        <a href="{{route('register')}}"><span class="list-group-item-value">Create new user</span></a>
+                    </li>
+                </ul>
+                </div>
             </li>
+
+
             <li class="list-group-item">
                 <a>
                     <span class="fa pficon-users" data-toggle="tooltip" title="Dolor"></span>
