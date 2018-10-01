@@ -37,7 +37,7 @@
             <td>{{$user->email}}</td>
             <td>{{$user->name}}</td>
             <td>Mudr.</td>
-            <td>admin</td>
+            <td>{{$user->role}}</td>
             <td>Horsky rad 490</td>
             <td>EDASDSA</td>
             <td>4.5E</td>
