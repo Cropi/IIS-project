@@ -38,9 +38,9 @@
             <td>{{$user->name}}</td>
             <td>Mudr.</td>
             <td>{{$user->role}}</td>
-            <td>Horsky rad 490</td>
-            <td>EDASDSA</td>
-            <td>4.5E</td>
+            <td>{{$user->adress}}</td>
+            <td>{{$user->bankAccountNumber}}</td>
+            <td>{{$user->wage}}</td>
             <td width="2">
                 <div class="dropdown table-view-pf-actions">
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
@@ -58,7 +58,7 @@
 
 </table>
 
-<p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+<p>Note that removed users can not be restored.</p>
 </div>
 
 <script>
