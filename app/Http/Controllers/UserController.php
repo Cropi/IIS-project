@@ -75,7 +75,30 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $rules = [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'required|min:6|confirmed',
+            'adress' => 'max:255',
+            'bankAccountNumber' => 'regex:/(^([A-Z0-9]*)$)/u',
+            'wage' => 'numeric',
+        ];
+        $this->validate($request, $rules);
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password') != "" ? bcrypt($request->input('password')) : "" ;
+        $user->adress = $request->input('adress');
+        $user->bankAccountNumber = $request->input('bankAccountNumber');
+        $user->wage = $request->input('wage');
+
+        $user->save();
+        $data = [
+            'users' => User::get(),
+            'error' => 'update',
+        ];
+        return view('sidebar.users.show')->with('data', $data);
     }
 
     /**
@@ -89,7 +112,7 @@ class UserController extends Controller
         $isDestroyed = User::destroy($id);
         $data = [
             'users' => User::get(),
-            'error' => (bool)"",
+            'error' => 'destroy',
         ];
         return view('sidebar.users.show')->with('data', $data);
     }
@@ -99,7 +122,7 @@ class UserController extends Controller
         if ($id == Auth::user()->id) {
             $data = [
                 'users' => User::get(),
-                'error' => (bool)"1",
+                'error' => 'error',
             ];
             return view('sidebar.users.show')->with('data', $data);
         }

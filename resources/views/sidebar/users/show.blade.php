@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-@if ($data['error'] == 'true')
+@if ($data['error'] == 'error')
 <div class="alert alert-danger alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span class="pficon pficon-close"></span>
@@ -9,6 +9,23 @@
     <span class="pficon pficon-error-circle-o"></span>
     <strong>Hey there is a problem!</strong> You can not remove yourself!
 </div>
+@elseif($data['error'] == 'update')
+<div class="alert alert-success alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span class="pficon pficon-close"></span>
+  </button>
+  <span class="pficon pficon-ok"></span>
+  <strong>Great job!</strong> You have successfully modified the requested person.
+</div>
+@elseif($data['error'] == 'destroy')
+<div class="alert alert-success alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span class="pficon pficon-close"></span>
+  </button>
+  <span class="pficon pficon-ok"></span>
+  <strong>Great job!</strong> You have successfully removed the requested person.
+</div>
+
 @endif
 
 <h1>System users</h1>
