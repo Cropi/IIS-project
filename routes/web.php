@@ -33,3 +33,4 @@ Route::post('/user/edit/{id}', 'UserController@update')->name('update-user');
 // Owners
 Route::resource('owners', 'OwnerController');
 Route::get('/owners', 'OwnerController@index')->name('owners');
+Route::get('/owners_create', 'OwnerController@create')->name('owners.create');
