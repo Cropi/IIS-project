@@ -143,12 +143,23 @@
             </li>
 
 
-            <li class="list-group-item">
-                <a>
-                    <span class="fa pficon-users" data-toggle="tooltip" title="Dolor"></span>
+            <li class="list-group-item {{ Request::is('owners') ? 'active' : '' }} secondary-nav-item-pf" data-target="#owners-secondary">
+                <a href="{{route('owners')}}">
+                    <span class="fa pficon-users" data-toggle="tooltip" title="Owners"></span>
                     <span class="list-group-item-value">Owners</span>
-
                 </a>
+
+                <div class="nav-pf-secondary-nav">
+                    <div class="nav-item-pf-header">
+                        <a  class="secondary-collapse-toggle-pf" data-toggle="collapse-secondary-nav"></a>
+                        <span>Owners</span>
+                    </div>
+                <ul class="list-group">
+                    <li class="list-group-item active " data-target="#aipsum-intellegam-tertiarya">
+                        <a href="{{route('owners.create')}}"><span class="list-group-item-value">Create new owner</span></a>
+                    </li>
+                </ul>
+                </div>
             </li>
             <li class="list-group-item">
                 <a>

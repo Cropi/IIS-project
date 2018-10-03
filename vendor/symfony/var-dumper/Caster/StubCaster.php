@@ -30,13 +30,15 @@ class StubCaster
             $stub->cut = $c->cut;
             $stub->attr = $c->attr;
 
-            if (Stub::TYPE_REF === $c->type && !$c->class && is_string($c->value) && !preg_match('//u', $c->value)) {
+            if (Stub::TYPE_REF === $c->type && !$c->class && \is_string($c->value) && !preg_match('//u', $c->value)) {
                 $stub->type = Stub::TYPE_STRING;
                 $stub->class = Stub::STRING_BINARY;
             }
 
-            return array();
+            $a = array();
         }
+
+        return $a;
     }
 
     public static function castCutArray(CutArrayStub $c, array $a, Stub $stub, $isNested)
@@ -47,7 +49,7 @@ class StubCaster
     public static function cutInternals($obj, array $a, Stub $stub, $isNested)
     {
         if ($isNested) {
-            $stub->cut += count($a);
+            $stub->cut += \count($a);
 
             return array();
         }

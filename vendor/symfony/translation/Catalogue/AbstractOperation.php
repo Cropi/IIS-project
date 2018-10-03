@@ -11,10 +11,10 @@
 
 namespace Symfony\Component\Translation\Catalogue;
 
-use Symfony\Component\Translation\MessageCatalogue;
-use Symfony\Component\Translation\MessageCatalogueInterface;
 use Symfony\Component\Translation\Exception\InvalidArgumentException;
 use Symfony\Component\Translation\Exception\LogicException;
+use Symfony\Component\Translation\MessageCatalogue;
+use Symfony\Component\Translation\MessageCatalogueInterface;
 
 /**
  * Base catalogues binary operation class.
@@ -26,19 +26,8 @@ use Symfony\Component\Translation\Exception\LogicException;
  */
 abstract class AbstractOperation implements OperationInterface
 {
-    /**
-     * @var MessageCatalogueInterface The source catalogue
-     */
     protected $source;
-
-    /**
-     * @var MessageCatalogueInterface The target catalogue
-     */
     protected $target;
-
-    /**
-     * @var MessageCatalogue The result catalogue
-     */
     protected $result;
 
     /**
@@ -50,30 +39,26 @@ abstract class AbstractOperation implements OperationInterface
      * This array stores 'all', 'new' and 'obsolete' messages for all valid domains.
      *
      * The data structure of this array is as follows:
-     * ```php
-     * array(
-     *     'domain 1' => array(
-     *         'all' => array(...),
-     *         'new' => array(...),
-     *         'obsolete' => array(...)
-     *     ),
-     *     'domain 2' => array(
-     *         'all' => array(...),
-     *         'new' => array(...),
-     *         'obsolete' => array(...)
-     *     ),
-     *     ...
-     * )
-     * ```
+     *
+     *     array(
+     *         'domain 1' => array(
+     *             'all' => array(...),
+     *             'new' => array(...),
+     *             'obsolete' => array(...)
+     *         ),
+     *         'domain 2' => array(
+     *             'all' => array(...),
+     *             'new' => array(...),
+     *             'obsolete' => array(...)
+     *         ),
+     *         ...
+     *     )
      *
      * @var array The array that stores 'all', 'new' and 'obsolete' messages
      */
     protected $messages;
 
     /**
-     * @param MessageCatalogueInterface $source The source catalogue
-     * @param MessageCatalogueInterface $target The target catalogue
-     *
      * @throws LogicException
      */
     public function __construct(MessageCatalogueInterface $source, MessageCatalogueInterface $target)
@@ -105,7 +90,7 @@ abstract class AbstractOperation implements OperationInterface
      */
     public function getMessages($domain)
     {
-        if (!in_array($domain, $this->getDomains())) {
+        if (!\in_array($domain, $this->getDomains())) {
             throw new InvalidArgumentException(sprintf('Invalid domain: %s.', $domain));
         }
 
@@ -121,7 +106,7 @@ abstract class AbstractOperation implements OperationInterface
      */
     public function getNewMessages($domain)
     {
-        if (!in_array($domain, $this->getDomains())) {
+        if (!\in_array($domain, $this->getDomains())) {
             throw new InvalidArgumentException(sprintf('Invalid domain: %s.', $domain));
         }
 
@@ -137,7 +122,7 @@ abstract class AbstractOperation implements OperationInterface
      */
     public function getObsoleteMessages($domain)
     {
-        if (!in_array($domain, $this->getDomains())) {
+        if (!\in_array($domain, $this->getDomains())) {
             throw new InvalidArgumentException(sprintf('Invalid domain: %s.', $domain));
         }
 
