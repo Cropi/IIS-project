@@ -33,4 +33,6 @@ Route::post('/user/edit/{id}', 'UserController@update')->name('update-user');
 // Owners
 Route::resource('owners', 'OwnerController');
 Route::get('/owners', 'OwnerController@index')->name('owners');
-Route::get('/owners_create', 'OwnerController@create')->name('owners.create');
+Route::get('/owners-create', 'OwnerController@create')->name('owners.create');
+Route::get('/owners/ask-delete/{id}', 'OwnerController@askDelete')->name('sidebar.owners.ask-delete');
+Route::get('/owners/edit/{id}', 'OwnerController@edit')->name('sidebar.owners.edit');

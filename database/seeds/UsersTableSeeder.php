@@ -28,5 +28,18 @@ class UsersTableSeeder extends Seeder
                 'updated_at'         => $today->format('Y-m-d H:i:s'),
             ),
         ));
+
+        DB::table('owners')->insert(array(
+            array(
+                'id'                 => 1,
+                'name'               => 'Attila',
+                'adress'             => 'NewCastle',
+                'surname'  => 'Lakatos',
+                'personalID'               => '123123',
+                'created_at'         => $today->format('Y-m-d H:i:s'),
+                'updated_at'         => $today->format('Y-m-d H:i:s'),
+            ),
+        ));
+
     }
 }

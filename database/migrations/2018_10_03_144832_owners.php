@@ -17,6 +17,9 @@ class Owners extends Migration
         Schema::create('owners', function (Blueprint $table){
             $table->increments('id');
             $table->string('name');
+            $table->string('personalID');
+            $table->string('surname');
+            $table->string('adress');
             $table->timestamps();
         });
     }

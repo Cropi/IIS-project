@@ -58,9 +58,9 @@
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                         <span class="fa fa-ellipsis-v"></span></button>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownKebabRight">
-                        <li><a href="" >Modify owner</a></li></li>
+                        <li><a href="{{route('sidebar.owners.edit', $owner->id)}}" >Modify owner</a></li></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="">Delete owner</a></li>
+                        <li><a href="{{route('sidebar.owners.ask-delete', $owner->id)}}">Delete owner</a></li>
                 </div>
             </td>
         </tr>

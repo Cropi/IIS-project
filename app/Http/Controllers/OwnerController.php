@@ -44,7 +44,27 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'name' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'personalID' => 'required|min:6',
+            'adress' => 'max:255',
+        ];
+        $this->validate($request, $rules);
+
+        $owner = new Owner();
+        $owner->name = $request->input('name');
+        $owner->surname = $request->input('surname');
+        $owner->personalID = $request->input('personalID');
+        $owner->adress = $request->input('adress');
+
+        $owner->save();
+
+        $data = [
+            'owners' => Owner::get(),
+            'error' => 'update',
+        ];
+        return view('sidebar.owners.show')->with('data', $data);
     }
 
     /**
@@ -65,7 +85,8 @@ class OwnerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $owner = Owner::find($id);
+        return view('sidebar.owners.edit')->with('owner', $owner);
     }
 
     /**
@@ -88,6 +109,17 @@ class OwnerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $isDestroyed = Owner::destroy($id);
+        $data = [
+            'owners' => Owner::get(),
+            'error' => 'destroy',
+        ];
+        return view('sidebar.owners.show')->with('data', $data);
+    }
+
+    public function askDelete($id)
+    {
+        $owner = Owner::find($id);
+        return view('sidebar.owners.ask-delete')->with('owner', $owner);
     }
 }
