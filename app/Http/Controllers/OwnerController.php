@@ -98,7 +98,26 @@ class OwnerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $owner = Owner::find($id);
+        $rules = [
+            'name' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'personalID' => 'required|min:6',
+            'adress' => 'max:255',
+        ];
+        $this->validate($request, $rules);
+
+        $owner->name = $request->input('name');
+        $owner->surname = $request->input('surname');
+        $owner->personalID = $request->input('personalID');
+        $owner->adress = $request->input('adress');
+        $owner->save();
+
+        $data = [
+            'owners' => Owner::get(),
+            'error' => 'update',
+        ];
+        return view('sidebar.owners.show')->with('data', $data);
     }
 
     /**
