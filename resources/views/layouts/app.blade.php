@@ -16,6 +16,8 @@
     <script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/popper.min.js') }}"></script>
+
+    @yield('styles')
 </head>
 <body>
     <nav class="navbar navbar-pf-vertical">
@@ -209,7 +211,7 @@
             $().setupVerticalNavigation(true);
         });
     </script>
-    @section('scripts')
+    @yield('scripts')
     @show
 </body>
 </html>
