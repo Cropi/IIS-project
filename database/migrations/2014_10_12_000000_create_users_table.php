@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('adress');
             $table->string('bankAccountNumber');
             $table->string('wage');
+            $table->DateTime('lastLogin');
             $table->rememberToken();
             $table->timestamps();
         });

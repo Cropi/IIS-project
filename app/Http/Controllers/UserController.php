@@ -142,16 +142,18 @@ class UserController extends Controller
         $rules = [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            // 'password' => 'required|min:6|confirmed',
+            'wage' => 'numeric',
             'adress' => 'max:255',
             'bankAccountNumber' => 'regex:/(^([A-Z0-9]*)$)/u',
         ];
+
         $this->validate($request, $rules);
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        // $user->password = $request->input('password') != "" ? bcrypt($request->input('password')) : "" ;
         $user->adress = $request->input('adress');
+        $user->wage = $request->input('wage');
+
         $user->bankAccountNumber = $request->input('bankAccountNumber');
 
         $user->save();

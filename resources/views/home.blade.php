@@ -1,16 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-<h1> Welcome </h1>
-
-<div class="alert alert-danger alert-dismissable">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span class="pficon pficon-close"></span>
-  </button>
-  <span class="pficon pficon-error-circle-o"></span>
-  <strong>Hey there is a problem!</strong> Yeah this is really messed up and you should <a href="#" class="alert-link">know about it</a>.
-</div>
+    <div class="col-md-12">
+        <hr/>
+        <div class="blank-slate-pf " id="">
+            <h1> Welcome on the site, {{Auth::user()->name}} </h1>
+            <h3> Your last visit: {{Auth::user()->lastLogin}} </h3>
+            <div class="col-sm-12">
+            <div class="alert alert-warning" role="alert">
+                <h2 > If it wasn't you, please contact the system administartor </h2>
+            </div>
+        </div>
+        </div>
+    </div>
 
 @endsection

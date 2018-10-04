@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
+use Illuminate\Http\Request;
+use \Datetime;
 
 class LoginController extends Controller
 {
@@ -35,5 +38,14 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
+    }
+
+    public function logout(Request $request) {
+        $user = Auth::user();
+        $now = $today = new DateTime('now');
+        $user->lastLogin = $now->format('Y-m-d H:i:s');
+        $user->save();
+        Auth::logout();
+        return redirect('/login');
     }
 }

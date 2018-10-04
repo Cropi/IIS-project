@@ -43,7 +43,7 @@
                             <label for="role" class="col-md-4 control-label">Role</label>
                             <div class="col-md-6">
                                 <!-- <input id="role" type="email" class="form-control" name="role" value="{{ old('role') }}" required> -->
-                                <select id="role" class="selectpicker form-control" name="role" disabled>
+                                <select id="role" class="selectpicker form-control" name="role" @if ($user->role == 'nurse') disabled @endif>
                                     <option value="admin">Veterinarian(admin)</option>
                                         @if ($user->role == 'admin')
                                             selected="selected"
@@ -89,7 +89,7 @@
                             <label for="wage" class="col-md-4 control-label">Wage</label>
 
                             <div class="col-md-6">
-                                <input id="wage" type="text" class="form-control" name="wage" value="{{ $user->wage }}" disabled>
+                                <input id="wage" type="text" class="form-control" name="wage" value="{{ $user->wage }}" @if ($user->role == 'nurse') readonly @endif>
 
                             @if ($errors->has('wage'))
                                 <span class="help-block">

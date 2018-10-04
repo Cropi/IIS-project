@@ -26,6 +26,7 @@ class UsersTableSeeder extends Seeder
                 'remember_token'     => NULL,
                 'created_at'         => $today->format('Y-m-d H:i:s'),
                 'updated_at'         => $today->format('Y-m-d H:i:s'),
+                'lastLogin'          => $today->format('Y-m-d H:i:s'),
             ),
         ));
 
@@ -33,12 +34,12 @@ class UsersTableSeeder extends Seeder
             array(
                 'id'                 => 1,
                 'name'               => 'Attila',
-                'adress'             => 'NewCastle',
-                'surname'  => 'Lakatos',
-                'personalID'               => '123123',
+                'adress'             => 'Las Vegas',
+                'surname'            => 'Lakatos',
+                'personalID'         => 'ECECEC',
                 'created_at'         => $today->format('Y-m-d H:i:s'),
                 'updated_at'         => $today->format('Y-m-d H:i:s'),
-            ),
+             ),
         ));
 
     }
