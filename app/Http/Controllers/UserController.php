@@ -92,6 +92,7 @@ class UserController extends Controller
         $user->adress = $request->input('adress');
         $user->bankAccountNumber = $request->input('bankAccountNumber');
         $user->wage = $request->input('wage');
+        $user->role = $request->input('role');
 
         $user->save();
         $data = [
@@ -127,5 +128,34 @@ class UserController extends Controller
             return view('sidebar.users.show')->with('data', $data);
         }
         return view('sidebar.users.ask-delete')->with('user', User::find($id));
+    }
+
+    public function settingsEdit()
+    {
+        $user = Auth::user();
+        return view('sidebar.users.settings')->with('user', User::find($user->id));
+    }
+
+    public function settingsUpdate(Request $request)
+    {
+        $user = Auth::user();
+        $rules = [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            // 'password' => 'required|min:6|confirmed',
+            'adress' => 'max:255',
+            'bankAccountNumber' => 'regex:/(^([A-Z0-9]*)$)/u',
+        ];
+        $this->validate($request, $rules);
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        // $user->password = $request->input('password') != "" ? bcrypt($request->input('password')) : "" ;
+        $user->adress = $request->input('adress');
+        $user->bankAccountNumber = $request->input('bankAccountNumber');
+
+        $user->save();
+
+        return redirect()->route('home');
     }
 }

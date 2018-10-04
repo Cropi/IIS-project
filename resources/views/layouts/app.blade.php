@@ -88,7 +88,7 @@
                     <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <span title="Username" class="fa pficon-user"></span>
                         <span class="dropdown-title">
-                            {{ Auth::user()->email }} <b class="caret"></b>
+                            {{ Auth::user()->name }} <b class="caret"></b>
                         </span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -96,7 +96,7 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li><a href="#">Settings</a></li>
+                            <li><a href="{{route('sidebar.users.settings')}}">Settings</a></li>
                             <li class="divider"></li>
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">

@@ -19,9 +19,13 @@ Route::get('/{pattern}/{example}', function ($pattern, $example) {
 });
 
 Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
+// Actual user settings
+Route::get('/settings', 'UserController@settingsEdit')->name('sidebar.users.settings');
+Route::post('/settings', 'UserController@settingsUpdate')->name('update-settings');
 
 // Users
 Route::resource('users', 'UserController');
