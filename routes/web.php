@@ -49,3 +49,11 @@ Route::get('/animals-create', 'AnimalController@create')->name('animals.create')
 Route::get('/animals/ask-delete/{id}', 'AnimalController@askDelete')->name('sidebar.animals.ask-delete');
 Route::get('/animals/edit/{id}', 'AnimalController@edit')->name('sidebar.animals.edit');
 Route::post('/animals/edit/{id}', 'AnimalController@update')->name('update-animal');
+
+// Medicines
+Route::resource('medicines', 'MedicineController');
+Route::get('/medicines', 'MedicineController@index')->name('medicines');
+Route::get('/medicines-create', 'MedicineController@create')->name('medicines.create');
+Route::get('/medicines/ask-delete/{id}', 'MedicineController@askDelete')->name('sidebar.medicines.ask-delete');
+Route::get('/medicines/edit/{id}', 'MedicineController@edit')->name('sidebar.medicines.edit');
+Route::post('/medicines/edit/{id}', 'MedicineController@update')->name('update-medicine');
