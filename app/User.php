@@ -29,6 +29,6 @@ class User extends Authenticatable
 
     public function isVeterinarian()
     {
-        return $this->role == 'admin' ? 1 : 0;
+        return $this->role == 'veterinarian' ? 1 : 0;
     }
 }

@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder
                 'name'               => 'Attila Lakatos',
                 'email'              => 'aaa@aaa.aaa',
                 'password'           => bcrypt('aaaaaa'),
-                'role'               => 'admin',
+                'role'               => 'veterinarian',
                 'adress'             => 'Komarno',
                 'bankAccountNumber'  => 'ASD123',
                 'wage'               => '420',

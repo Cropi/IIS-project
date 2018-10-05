@@ -16,11 +16,11 @@ class IsAdmin
      */
      public function handle($request, Closure $next)
      {
-          if (Auth::user() &&  Auth::user()->IsAdmin == 1) {
+          if (Auth::user() &&  Auth::user()->isVeterinarian() == 1) {
                  return $next($request);
           }
 
-         return redirect('/');
+         return redirect()->guest('login');
      }
 
 }

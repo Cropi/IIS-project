@@ -94,7 +94,7 @@
                     <span class="list-group-item-value">Home</span>
                 </a>
             </li>
-            @if (Auth::user()->role == 'admin')
+            @if (Auth::user()->role == 'veterinarian')
                 <li class="list-group-item {{ Request::is('users') ? 'active' : '' }} secondary-nav-item-pf" data-target="#ipsum-secondary">
                     <a href="{{ route('users') }}">
                         <span class="fa pficon-user" data-toggle="tooltip" title="Users"></span>
@@ -114,7 +114,7 @@
                     </div>
                 </li>
             @endif
-                
+
             <li class="list-group-item {{ Request::is('owners') ? 'active' : '' }} secondary-nav-item-pf" data-target="#owners-secondary">
                 <a href="{{route('owners')}}">
                     <span class="fa pficon-users" data-toggle="tooltip" title="Owners"></span>

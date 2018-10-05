@@ -44,7 +44,7 @@
                             <div class="col-md-6">
                                 <!-- <input id="role" type="email" class="form-control" name="role" value="{{ old('role') }}" required> -->
                                 <select id="role" class="selectpicker form-control" name="role" value="{{ old('role') }}" required>
-                                    <option value="admin">Veterinarian(admin)</option>
+                                    <option value="veterinarian">Veterinarian(admin)</option>
                                     <option value="nurse">Nurse</option>
                                 </select>
                             </div>
