@@ -20,7 +20,6 @@ class Owners extends Migration
             $table->string('personalID');
             $table->string('surname');
             $table->string('adress');
-            $table->DateTime('lastLogin');
             $table->timestamps();
         });
     }
