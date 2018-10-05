@@ -41,3 +41,11 @@ Route::get('/owners-create', 'OwnerController@create')->name('owners.create');
 Route::get('/owners/ask-delete/{id}', 'OwnerController@askDelete')->name('sidebar.owners.ask-delete');
 Route::get('/owners/edit/{id}', 'OwnerController@edit')->name('sidebar.owners.edit');
 Route::post('/owners/edit/{id}', 'OwnerController@update')->name('update-owner');
+
+// Animals
+Route::resource('animals', 'AnimalController');
+Route::get('/animals', 'AnimalController@index')->name('animals');
+Route::get('/animals-create', 'AnimalController@create')->name('animals.create');
+Route::get('/animals/ask-delete/{id}', 'AnimalController@askDelete')->name('sidebar.animals.ask-delete');
+Route::get('/animals/edit/{id}', 'AnimalController@edit')->name('sidebar.animals.edit');
+Route::post('/animals/edit/{id}', 'AnimalController@update')->name('update-animal');

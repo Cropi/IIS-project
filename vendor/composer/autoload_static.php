@@ -286,6 +286,7 @@ class ComposerStaticInit3f0292e5546b04dd519e5edc59832e26
     );
 
     public static $classMap = array (
+        'Animals' => __DIR__ . '/../..' . '/database/migrations/2018_10_05_144956_animals.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',

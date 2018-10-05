@@ -59,5 +59,17 @@ class UsersTableSeeder extends Seeder
              ),
         ));
 
+        DB::table('animals')->insert(array(
+            array(
+                'id'                 => 1,
+                'name'               => 'Mighty',
+                'type'               => 'American bully',
+                'birthday'           => '2005-07-29 20:15:12',
+                'lastVisit'          => $today->format('Y-m-d H:i:s'),
+                'created_at'         => $today->format('Y-m-d H:i:s'),
+                'updated_at'         => $today->format('Y-m-d H:i:s'),
+             ),
+        ));
+
     }
 }

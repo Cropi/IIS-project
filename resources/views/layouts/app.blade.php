@@ -108,7 +108,7 @@
                         </div>
                     <ul class="list-group">
                         <li class="list-group-item active " data-target="#ipsum-intellegam-tertiary">
-                            <a href="{{route('register')}}"><span class="list-group-item-value">Create new user</span></a>
+                            <a href="{{route('register')}}"><span class="list-group-item-value">Add new user</span></a>
                         </li>
                     </ul>
                     </div>
@@ -128,7 +128,7 @@
                     </div>
                 <ul class="list-group">
                     <li class="list-group-item active " data-target="#aipsum-intellegam-tertiarya">
-                        <a href="{{route('owners.create')}}"><span class="list-group-item-value">Create new owner</span></a>
+                        <a href="{{route('owners.create')}}"><span class="list-group-item-value">Add new owner</span></a>
                     </li>
                 </ul>
                 </div>
@@ -139,11 +139,23 @@
                     <span class="list-group-item-value">Medicines</span>
                 </a>
             </li>
-            <li class="list-group-item">
-                <a>
-                    <span class="fa fa-paw" data-toggle="tooltip" title="Adipscing"></span>
+            <li class="list-group-item {{ Request::is('animals') ? 'active' : '' }} secondary-nav-item-pf">
+                <a href="{{route('animals')}}">
+                    <span class="fa fa-paw" data-toggle="tooltip" title="Anima;s"></span>
                     <span class="list-group-item-value">Animals</span>
                 </a>
+
+                <div class="nav-pf-secondary-nav">
+                    <div class="nav-item-pf-header">
+                        <a  class="secondary-collapse-toggle-pf" data-toggle="collapse-secondary-nav"></a>
+                        <span>Animals</span>
+                    </div>
+                <ul class="list-group">
+                    <li class="list-group-item active " data-target="#animal-target">
+                        <a href="{{route('animals.create')}}"><span class="list-group-item-value">Add new animal</span></a>
+                    </li>
+                </ul>
+                </div>
             </li>
             <li class="list-group-item">
                 <a>

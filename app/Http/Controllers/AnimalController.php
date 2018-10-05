@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
-use App\Owner;
+use App\Animal;
 
-class OwnerController extends Controller
+class AnimalController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,10 +21,10 @@ class OwnerController extends Controller
     public function index()
     {
         $data = [
-            'owners' => Owner::get(),
+            'animals' => Animal::get(),
             'error' => (bool)"",
         ];
-        return view('sidebar.owners.show')->with('data', $data);
+        return view('sidebar.animals.show')->with('data', $data);
     }
 
     /**
@@ -33,7 +34,7 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        return view('sidebar.owners.create');
+        return view('sidebar.animals.create');
     }
 
     /**
@@ -46,25 +47,24 @@ class OwnerController extends Controller
     {
         $rules = [
             'name' => 'required|max:255',
-            'surname' => 'required|max:255',
-            'personalID' => 'required|min:6',
-            'adress' => 'max:255',
+            'type' => 'required|max:255',
+            // Birthday, lastVisit
         ];
         $this->validate($request, $rules);
 
-        $owner = new Owner();
-        $owner->name = $request->input('name');
-        $owner->surname = $request->input('surname');
-        $owner->personalID = $request->input('personalID');
-        $owner->adress = $request->input('adress');
+        $animal = new Animal();
+        $animal->name = $request->input('name');
+        $animal->type = $request->input('type');
+        $animal->birthday = $request->input('birthday');
+        $animal->lastVisit = $request->input('lastVisit');
 
-        $owner->save();
+        $animal->save();
 
         $data = [
-            'owners' => Owner::get(),
-            'error' => 'update',
+            'animals' => Animal::get(),
+            'error' => 'create',
         ];
-        return view('sidebar.owners.show')->with('data', $data);
+        return view('sidebar.animals.show')->with('data', $data);
     }
 
     /**
@@ -75,6 +75,7 @@ class OwnerController extends Controller
      */
     public function show($id)
     {
+        //
     }
 
     /**
@@ -85,8 +86,7 @@ class OwnerController extends Controller
      */
     public function edit($id)
     {
-        $owner = Owner::find($id);
-        return view('sidebar.owners.edit')->with('owner', $owner);
+        return view('sidebar.animals.edit')->with('animal', Animal::find($id));
     }
 
     /**
@@ -98,26 +98,26 @@ class OwnerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $owner = Owner::find($id);
+        $animal = Animal::find($id);
         $rules = [
             'name' => 'required|max:255',
-            'surname' => 'required|max:255',
-            'personalID' => 'required|min:6',
-            'adress' => 'max:255',
+            'type' => 'required|max:255',
+            'birthday' => 'date_format:Y-m-d H:i:s|nullable',
+            'lastVisit' => 'date_format:Y-m-d H:i:s|nullable',
         ];
         $this->validate($request, $rules);
 
-        $owner->name = $request->input('name');
-        $owner->surname = $request->input('surname');
-        $owner->personalID = $request->input('personalID');
-        $owner->adress = $request->input('adress');
-        $owner->save();
+        $animal->name = $request->input('name');
+        $animal->type = $request->input('type');
+        $animal->birthday = $request->input('birthday');
+        $animal->lastVisit = $request->input('lastVisit');
+        $animal->save();
 
         $data = [
-            'owners' => Owner::get(),
+            'animals' => Animal::get(),
             'error' => 'update',
         ];
-        return view('sidebar.owners.show')->with('data', $data);
+        return view('sidebar.animals.show')->with('data', $data);
     }
 
     /**
@@ -128,13 +128,17 @@ class OwnerController extends Controller
      */
     public function destroy($id)
     {
-        $isDestroyed = Owner::destroy($id);
-        return redirect()->route('owners');
+        $isDestroyed = Animal::destroy($id);
+        $data = [
+            'animals' => Animal::get(),
+            'error' => 'destroy',
+        ];
+        return view('sidebar.animals.show')->with('data', $data);
     }
 
     public function askDelete($id)
     {
-        $owner = Owner::find($id);
-        return view('sidebar.owners.ask-delete')->with('owner', $owner);
+        $animal = Animal::find($id);
+        return view('sidebar.animals.ask-delete')->with('animal', $animal);
     }
 }

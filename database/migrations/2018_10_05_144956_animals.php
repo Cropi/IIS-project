@@ -4,9 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Owners extends Migration
+class Animals extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,12 +13,12 @@ class Owners extends Migration
      */
     public function up()
     {
-        Schema::create('owners', function (Blueprint $table){
+        Schema::create('animals', function (Blueprint $table){
             $table->increments('id');
             $table->string('name');
-            $table->string('personalID');
-            $table->string('surname');
-            $table->string('adress')->nullable();;
+            $table->string('type');
+            $table->DateTime('birthday')->nullable();
+            $table->DateTime('lastVisit')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class Owners extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('owners');
+        Schema::dropIfExists('animals');
     }
 }
