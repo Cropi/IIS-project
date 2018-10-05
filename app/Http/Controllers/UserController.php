@@ -9,6 +9,12 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth');
+        $this->middleware('veterinarian');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -153,7 +159,7 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->adress = $request->input('adress');
         $user->wage = $request->input('wage');
-
+        $user->role = $request->input('role');
         $user->bankAccountNumber = $request->input('bankAccountNumber');
 
         $user->save();

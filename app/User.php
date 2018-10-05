@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'adress', 'bankAccountNumber', 'wage' 
+        'name', 'email', 'password', 'role', 'adress', 'bankAccountNumber', 'wage'
     ];
 
     /**
@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function isVeterinarian()
+    {
+        return $this->role == 'admin' ? 1 : 0;
+    }
 }
