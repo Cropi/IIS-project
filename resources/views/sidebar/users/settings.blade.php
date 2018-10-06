@@ -44,7 +44,7 @@
                             <div class="col-md-6">
                                 <!-- <input id="role" type="email" class="form-control" name="role" value="{{ old('role') }}" required> -->
                                 <select id="role" class="selectpicker form-control" name="role" @if ($user->role == 'nurse') disabled @endif>
-                                    <option value="admin">Veterinarian(admin)</option>
+                                    <option value="veterinarian">Veterinarian(admin)</option>
                                         @if ($user->role == 'admin')
                                             selected="selected"
                                         @endif
