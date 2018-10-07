@@ -19,7 +19,12 @@ class Animals extends Migration
             $table->string('type');
             $table->DateTime('birthday')->nullable();
             $table->DateTime('lastVisit')->nullable();
+            $table->integer('owner_id')->unsigned()->nullable();
             $table->timestamps();
+        });
+
+        Schema::table('animals', function (Blueprint $table){
+            $table->foreign('owner_id')->references('id')->on('owners');
         });
     }
 

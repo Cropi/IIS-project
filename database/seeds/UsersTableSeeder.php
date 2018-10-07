@@ -59,6 +59,18 @@ class UsersTableSeeder extends Seeder
              ),
         ));
 
+        DB::table('owners')->insert(array(
+            array(
+                'id'                 => 2,
+                'name'               => 'Tomas',
+                'adress'             => 'Strekov',
+                'surname'            => 'Danczi',
+                'personalID'         => 'NEVITEL',
+                'created_at'         => $today->format('Y-m-d H:i:s'),
+                'updated_at'         => $today->format('Y-m-d H:i:s'),
+             ),
+        ));
+
         DB::table('animals')->insert(array(
             array(
                 'id'                 => 1,
@@ -68,6 +80,7 @@ class UsersTableSeeder extends Seeder
                 'lastVisit'          => $today->format('Y-m-d H:i:s'),
                 'created_at'         => $today->format('Y-m-d H:i:s'),
                 'updated_at'         => $today->format('Y-m-d H:i:s'),
+                'owner_id'           => 2,
              ),
         ));
 

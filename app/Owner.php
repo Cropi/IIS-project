@@ -12,4 +12,9 @@ class Owner extends Model
     protected $fillable = [
        'name'
     ];
+
+    public function animals()
+    {
+        $this->hasMany('App\Animal', 'id');
+    }
 }

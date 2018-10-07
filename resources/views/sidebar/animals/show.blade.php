@@ -42,6 +42,7 @@
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(3)')" style="cursor:pointer">Type</th>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(4)')" style="cursor:pointer">Birthday</th>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(5)')" style="cursor:pointer">Last visit</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(6)')" style="cursor:pointer">Owner(FK)</th>
             <th width="0px"></th>
         </tr>
     </thead>
@@ -54,6 +55,7 @@
             <td>{{$animal->type}}</td>
             <td>{{$animal->birthday}}</td>
             <td>{{$animal->lastVisit}}</td>
+            <td>{{$animal->owner == NULL ? "-" : $animal->owner->name}}</td>
             <td width="2">
                 <div class="dropdown table-view-pf-actions">
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">

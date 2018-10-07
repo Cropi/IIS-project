@@ -39,6 +39,19 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="owner" class="col-md-4 control-label">Owner</label>
+                            <div class="col-md-6">
+                                <!-- <input id="role" type="email" class="form-control" name="role" value="{{ old('role') }}" required> -->
+                                <select id="owner" class="selectpicker form-control" name="owner">
+                                    <option value="NULL">Unknown</option>
+                                    @foreach($owners as $owner)
+                                        <option value="{{$owner->id}}">{{$owner->name}} {{$owner->surname}} </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('birthday') ? ' has-error' : '' }}">
                             <label for="birthday" class="col-md-4 control-label">Birthday</label>
 

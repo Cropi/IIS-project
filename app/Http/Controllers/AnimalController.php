@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Animal;
+use App\Owner;
+use DB;
 
 class AnimalController extends Controller
 {
@@ -34,7 +36,7 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        return view('sidebar.animals.create');
+        return view('sidebar.animals.create')->with('owners', Owner::get());
     }
 
     /**
@@ -57,9 +59,10 @@ class AnimalController extends Controller
         $animal->type = $request->input('type');
         $animal->birthday = $request->input('birthday');
         $animal->lastVisit = $request->input('lastVisit');
+        $owner = Owner::find($request->input('owner'));
+        $animal->owner()->associate($owner);
 
         $animal->save();
-
         $data = [
             'animals' => Animal::get(),
             'error' => 'create',
