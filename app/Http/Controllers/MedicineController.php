@@ -18,7 +18,11 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        return view('sidebar.medicines.show')->with('medicines', Medicine::get());
+        $data = [
+            'medicines' => Medicine::get(),
+            'error' => (bool)"",
+        ];
+        return view('sidebar.medicines.show')->with('data', $data);
     }
 
     /**
@@ -28,7 +32,7 @@ class MedicineController extends Controller
      */
     public function create()
     {
-        //
+        return view('sidebar.medicines.create');
     }
 
     /**
@@ -39,7 +43,23 @@ class MedicineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'name' => 'required|max:255',
+            'type' => 'required|max:255',
+        ];
+        $this->validate($request, $rules);
+
+        $medicine = new Medicine();
+        $medicine->name = $request->input('name');
+        $medicine->type = $request->input('type');
+
+        $medicine->save();
+
+        $data = [
+            'medicines' => Medicine::get(),
+            'error' => 'create',
+        ];
+        return view('sidebar.medicines.show')->with('data', $data);
     }
 
     /**
@@ -50,7 +70,7 @@ class MedicineController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('sidebar.medicines.details')->with('medicine', Medicine::find($id));
     }
 
     /**
@@ -61,7 +81,7 @@ class MedicineController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('sidebar.medicines.edit')->with('medicine', Medicine::find($id));
     }
 
     /**
@@ -73,7 +93,23 @@ class MedicineController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $medicine = Medicine::find($id);
+        $rules = [
+            'name' => 'required|max:255',
+            'type' => 'required|max:255',
+        ];
+        $this->validate($request, $rules);
+
+        $medicine->name = $request->input('name');
+        $medicine->type = $request->input('type');
+        $medicine->save();
+
+        $data = [
+            'medicines' => Medicine::get(),
+            'error' => 'update',
+        ];
+        return view('sidebar.medicines.show')->with('data', $data);
     }
 
     /**
@@ -84,6 +120,37 @@ class MedicineController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // TODO delete all arrays which point to this object
+        $isDestroyed = Medicine::destroy($id);
+        $data = [
+            'medicines' => Medicine::get(),
+            'error' => 'destroy',
+        ];
+        return view('sidebar.medicines.show')->with('data', $data);
+    }
+
+    public function askDelete($id)
+    {
+        return view('sidebar.medicines.ask-delete')->with('medicine', Medicine::find($id));
+    }
+
+    public function addContraindication($id)
+    {
+        // TODO ADD
+        $data = [
+            'medicines' => Medicine::get(),
+            'error' => (bool)"",
+        ];
+        return view('sidebar.medicines.show')->with('data', $data);
+    }
+
+    public function addTypes($id)
+    {
+        // TODO ADD
+        $data = [
+            'medicines' => Medicine::get(),
+            'error' => (bool)"",
+        ];
+        return view('sidebar.medicines.show')->with('data', $data);
     }
 }

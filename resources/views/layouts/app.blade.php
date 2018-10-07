@@ -133,12 +133,26 @@
                 </ul>
                 </div>
             </li>
-            <li class="list-group-item">
-                <a>
+
+            <li class="list-group-item {{ Request::is('medicines') ? 'active' : '' }} secondary-nav-item-pf">
+                <a href="{{route('medicines')}}">
                     <span class="fa fa-plus-square" data-toggle="tooltip" title="Lorem"></span>
                     <span class="list-group-item-value">Medicines</span>
                 </a>
+
+                <div class="nav-pf-secondary-nav">
+                    <div class="nav-item-pf-header">
+                        <a  class="secondary-collapse-toggle-pf" data-toggle="collapse-secondary-nav"></a>
+                        <span>Medicines</span>
+                    </div>
+                <ul class="list-group">
+                    <li class="list-group-item active " data-target="#animal-target">
+                        <a href="{{route('medicines.create')}}"><span class="list-group-item-value">Add new medicine</span></a>
+                    </li>
+                </ul>
+                </div>
             </li>
+
             <li class="list-group-item {{ Request::is('animals') ? 'active' : '' }} secondary-nav-item-pf">
                 <a href="{{route('animals')}}">
                     <span class="fa fa-paw" data-toggle="tooltip" title="Anima;s"></span>
