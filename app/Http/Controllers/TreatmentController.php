@@ -9,6 +9,8 @@ use App\Treatment;
 use App\Animal;
 use App\Medicine;
 use App\User;
+use App\Dosage;
+use App\Owner;
 
 class TreatmentController extends Controller
 {
@@ -81,7 +83,18 @@ class TreatmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $dosages = Dosage::where('treatment_id', '=', $id)->get();
+        $animal = Animal::find(Treatment::find($id)->animal_id);
+        $owner = Owner::find($animal->owner_id);
+        $user = User::find(Treatment::find($id)->user_id);
+
+        return view('sidebar.treatments.show-prescriptions')->with([
+            'dosages' => $dosages,
+            'animal' => $animal->name,
+            'owner' => $owner->name,
+            'owner_id' => $owner->id,
+            'user'  => $user->name,
+        ]);
     }
 
     /**
@@ -162,8 +175,33 @@ class TreatmentController extends Controller
         return view('sidebar.treatments.add-prescription')->with('data', $data);
     }
 
-    public function storePrescription($id)
+    public function storePrescription(Request $request, $id)
     {
-        
+        $dosage = new Dosage();
+        $rules = [
+            'disease'        => 'required|max:255',
+            'amount1'        => 'numeric|min:0',
+            'timeToConsume1' => 'numeric|min:0',
+        ];
+        $this->validate($request, $rules);
+
+        $dosage->disease = $request->input('disease');
+        $dosage->amount1 = $request->input('amount1');
+        $dosage->amount2 = $request->input('amount2');
+        $dosage->timeToConsume1 = $request->input('timeToConsume1');
+        $dosage->timeToConsume2 = $request->input('timeToConsume2');
+
+        $medicine = Medicine::find($request->input('forMedicine'));
+        $dosage->medicine()->associate($medicine);
+
+        $treatment = Treatment::find($id);
+        $dosage->treatment()->associate($treatment);
+
+        $medicine->dosages->add($dosage);
+        $treatment->dosages->add($dosage);
+
+        $dosage->save();
+
+        return redirect()->route('treatments');
     }
 }

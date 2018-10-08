@@ -87,6 +87,7 @@ return array(
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
     'Medicines' => $baseDir . '/database/migrations/2018_10_05_170630_medicines.php',
+    'MedicinesDosages' => $baseDir . '/database/migrations/2018_10_08_120026_medicines_dosages.php',
     'MedicinesTableSeeder' => $baseDir . '/database/seeds/MedicinesTableSeeder.php',
     'Owners' => $baseDir . '/database/migrations/2018_10_03_144832_owners.php',
     'OwnersTableSeeder' => $baseDir . '/database/seeds/OwnersTableSeeder.php',

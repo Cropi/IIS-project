@@ -39,6 +39,66 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('disease') ? ' has-error' : '' }}">
+                            <label for="disease" class="col-md-4 control-label">Disease</label>
+
+                            <div class="col-md-6">
+                                <input id="disease" type="text" class="form-control" name="disease" value="" required>
+
+                                @if ($errors->has('disease'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('disease') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
+                            <label for="amount1" class="col-md-4 control-label">How many?</label>
+
+                            <div class="col-md-4">
+                                <input id="amount1" type="text" class="form-control" name="amount1" value="" required>
+
+                                @if ($errors->has('amount'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('amount') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <label for="amount2" class="col-md-1 control-label">/</label>
+                            <div class="col-md-2">
+                                <select id="amount2" class="selectpicker form-control" name="amount2">
+                                    <option value="hour"> Hour(s)</option>
+                                    <option value="day"> Days(s) </option>
+                                    <option value="week"> Week(s) </option>
+                                    <option value="month"> Month(s) </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group {{$errors->has('amount') ? ' has-error' : '' }}">
+                            <label for="timeToConsume1" class="col-md-4 control-label">For how long?</label>
+                            <div class="col-md-4">
+                                <input id="timeToConsume1" type="text" class="form-control" name="timeToConsume1" value="{{old('timeToConsume1')}}" required>
+
+                                @if ($errors->has('timeToConsume1'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('timeToConsume1') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <label for="timeToConsume2" class="col-md-1 control-label">/</label>
+                            <div class="col-md-2">
+                                <select id="timeToConsume2" class="selectpicker form-control" name="timeToConsume2">
+                                    <option value="day"> Days(s) </option>
+                                    <option value="week"> Week(s) </option>
+                                    <option value="month"> Month(s) </option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

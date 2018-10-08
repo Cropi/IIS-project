@@ -18,4 +18,8 @@ class Treatment extends Model
         return $this->belongsTo('App\Animal');
     }
 
+    public function dosages()
+    {
+        return $this->hasMany('App\Dosage');
+    }
 }
