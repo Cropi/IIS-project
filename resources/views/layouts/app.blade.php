@@ -171,7 +171,7 @@
                 </ul>
                 </div>
             </li>
-            <li class="list-group-item {{ Request::is('animals') ? 'active' : '' }} secondary-nav-item-pf">
+            <li class="list-group-item {{ Request::is('treatments') ? 'active' : '' }} secondary-nav-item-pf">
                 <a href="{{route('treatments')}}">
                     <span class="fa fa-medkit" data-toggle="tooltip" title="Lorem"></span>
                     <span class="list-group-item-value">Treatment</span>

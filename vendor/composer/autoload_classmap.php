@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Animals' => $baseDir . '/database/migrations/2018_10_05_144956_animals.php',
+    'AnimalsTableSeeder' => $baseDir . '/database/seeds/AnimalsTableSeeder.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
@@ -86,7 +87,9 @@ return array(
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
     'Medicines' => $baseDir . '/database/migrations/2018_10_05_170630_medicines.php',
+    'MedicinesTableSeeder' => $baseDir . '/database/seeds/MedicinesTableSeeder.php',
     'Owners' => $baseDir . '/database/migrations/2018_10_03_144832_owners.php',
+    'OwnersTableSeeder' => $baseDir . '/database/seeds/OwnersTableSeeder.php',
     'PHPUnit\\Framework\\Assert' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
     'PHPUnit\\Framework\\AssertionFailedError' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
     'PHPUnit\\Framework\\BaseTestListener' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
@@ -552,6 +555,7 @@ return array(
     'SessionUpdateTimestampHandlerInterface' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'Treatments' => $baseDir . '/database/migrations/2018_10_08_080939_treatments.php',
+    'TreatmentsTableSeeder' => $baseDir . '/database/seeds/TreatmentsTableSeeder.php',
     'TypeError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
     'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',
 );

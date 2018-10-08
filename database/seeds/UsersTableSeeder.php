@@ -47,42 +47,5 @@ class UsersTableSeeder extends Seeder
             ),
         ));
 
-        DB::table('owners')->insert(array(
-            array(
-                'id'                 => 1,
-                'name'               => 'Attila',
-                'adress'             => 'Las Vegas',
-                'surname'            => 'Lakatos',
-                'personalID'         => 'ECECEC',
-                'created_at'         => $today->format('Y-m-d H:i:s'),
-                'updated_at'         => $today->format('Y-m-d H:i:s'),
-             ),
-        ));
-
-        DB::table('owners')->insert(array(
-            array(
-                'id'                 => 2,
-                'name'               => 'Tomas',
-                'adress'             => 'Strekov',
-                'surname'            => 'Danczi',
-                'personalID'         => 'NEVITEL',
-                'created_at'         => $today->format('Y-m-d H:i:s'),
-                'updated_at'         => $today->format('Y-m-d H:i:s'),
-             ),
-        ));
-
-        DB::table('animals')->insert(array(
-            array(
-                'id'                 => 1,
-                'name'               => 'Mighty',
-                'type'               => 'American bully',
-                'birthday'           => '2005-07-29 20:15:12',
-                'lastVisit'          => $today->format('Y-m-d H:i:s'),
-                'created_at'         => $today->format('Y-m-d H:i:s'),
-                'updated_at'         => $today->format('Y-m-d H:i:s'),
-                'owner_id'           => 2,
-             ),
-        ));
-
     }
 }

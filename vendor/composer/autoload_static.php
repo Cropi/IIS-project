@@ -287,6 +287,7 @@ class ComposerStaticInit3f0292e5546b04dd519e5edc59832e26
 
     public static $classMap = array (
         'Animals' => __DIR__ . '/../..' . '/database/migrations/2018_10_05_144956_animals.php',
+        'AnimalsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AnimalsTableSeeder.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
@@ -366,7 +367,9 @@ class ComposerStaticInit3f0292e5546b04dd519e5edc59832e26
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
         'Medicines' => __DIR__ . '/../..' . '/database/migrations/2018_10_05_170630_medicines.php',
+        'MedicinesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/MedicinesTableSeeder.php',
         'Owners' => __DIR__ . '/../..' . '/database/migrations/2018_10_03_144832_owners.php',
+        'OwnersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/OwnersTableSeeder.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
@@ -832,6 +835,7 @@ class ComposerStaticInit3f0292e5546b04dd519e5edc59832e26
         'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'Treatments' => __DIR__ . '/../..' . '/database/migrations/2018_10_08_080939_treatments.php',
+        'TreatmentsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/TreatmentsTableSeeder.php',
         'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
         'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
     );
