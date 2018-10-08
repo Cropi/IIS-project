@@ -92,7 +92,11 @@ class TreatmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'treatment' => Treatment::find($id),
+            'animals'   => Animal::get(),
+        ];
+        return view('sidebar.treatments.edit')->with('data', $data);
     }
 
     /**
@@ -104,7 +108,30 @@ class TreatmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'diagnosis' => 'required',
+            'state'     => 'max:255',
+            'price'     => 'numeric',
+        ];
+        $this->validate($request, $rules);
+
+        $treatment =  Treatment::find($id);
+        $treatment->diagnosis = $request->input('diagnosis');
+        $treatment->state = $request->input('state');
+        $treatment->price = $request->input('price');
+
+        // $user = User::find(Auth::user()->id);
+        // $treatment->user()->associate($user);
+
+        $animal = Animal::find($request->input('forAnimal'));
+        $treatment->animal()->associate($animal);
+
+        $treatment->save();
+        $data = [
+            'treatments' => Treatment::get(),
+            'error' => 'create',
+        ];
+        return view('sidebar.treatments.show')->with('data', $data);
     }
 
     /**
@@ -123,5 +150,20 @@ class TreatmentController extends Controller
     {
         $treatment = Treatment::find($id);
         return view('sidebar.treatments.ask-delete')->with('treatment', $treatment);
+    }
+
+    public function addPrescription($id)
+    {
+        $treatment = Treatment::find($id);
+        $data = [
+            'treatment' => $treatment,
+            'medicines' => Medicine::get(),
+        ];
+        return view('sidebar.treatments.add-prescription')->with('data', $data);
+    }
+
+    public function storePrescription($id)
+    {
+        
     }
 }

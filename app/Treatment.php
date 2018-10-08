@@ -17,4 +17,5 @@ class Treatment extends Model
     {
         return $this->belongsTo('App\Animal');
     }
+
 }

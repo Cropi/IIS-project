@@ -70,3 +70,6 @@ Route::get('/treatments-create', 'TreatmentController@create')->name('treatments
 Route::get('/treatments/ask-delete/{id}', 'TreatmentController@askDelete')->name('sidebar.treatments.ask-delete');
 Route::get('/treatments/edit/{id}', 'TreatmentController@edit')->name('sidebar.treatments.edit');
 Route::post('/treatments/edit/{id}', 'TreatmentController@update')->name('update-treatment');
+Route::get('/treatments/show/{id}', 'TreatmentController@show')->name('show-treatment');
+Route::get('/treatments/add-prescription/{id}', 'TreatmentController@addPrescription')->name('add-prescription-medicine');
+Route::post('/treatments/add-prescription/{id}', 'TreatmentController@storePrescription')->name('store-prescription-medicine');
