@@ -171,11 +171,22 @@
                 </ul>
                 </div>
             </li>
-            <li class="list-group-item">
-                <a>
+            <li class="list-group-item {{ Request::is('animals') ? 'active' : '' }} secondary-nav-item-pf">
+                <a href="{{route('treatments')}}">
                     <span class="fa fa-medkit" data-toggle="tooltip" title="Lorem"></span>
                     <span class="list-group-item-value">Treatment</span>
                 </a>
+                <div class="nav-pf-secondary-nav">
+                    <div class="nav-item-pf-header">
+                        <a  class="secondary-collapse-toggle-pf" data-toggle="collapse-secondary-nav"></a>
+                        <span>Treatments</span>
+                    </div>
+                <ul class="list-group">
+                    <li class="list-group-item active " data-target="#animal-target">
+                        <a href="{{route('treatments.create')}}"><span class="list-group-item-value">Add new treatment</span></a>
+                    </li>
+                </ul>
+                </div>
             </li>
         </ul>
      </div> <!-- left side navbar -->

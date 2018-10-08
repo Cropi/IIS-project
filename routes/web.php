@@ -61,3 +61,12 @@ Route::post('/medicines/edit/{id}', 'MedicineController@update')->name('update-m
 Route::get('/medicines/show/{id}', 'MedicineController@show')->name('show-medicine');
 Route::post('/medicines/edit/contraindication/{id}', 'MedicineController@addContraindication')->name('add-contraindication-medicine');
 Route::post('/medicines/edit/types/{id}', 'MedicineController@addTypes')->name('add-types-medicine');
+
+
+// Treatments
+Route::resource('treatments', 'TreatmentController');
+Route::get('/treatments', 'TreatmentController@index')->name('treatments');
+Route::get('/treatments-create', 'TreatmentController@create')->name('treatments.create');
+Route::get('/treatments/ask-delete/{id}', 'TreatmentController@askDelete')->name('sidebar.treatments.ask-delete');
+Route::get('/treatments/edit/{id}', 'TreatmentController@edit')->name('sidebar.treatments.edit');
+Route::post('/treatments/edit/{id}', 'TreatmentController@update')->name('update-treatment');
