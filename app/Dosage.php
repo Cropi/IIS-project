@@ -18,4 +18,9 @@ class Dosage extends Model
         return $this->belongsTo('App\Treatment');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
 }

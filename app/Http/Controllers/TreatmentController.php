@@ -197,8 +197,12 @@ class TreatmentController extends Controller
         $treatment = Treatment::find($id);
         $dosage->treatment()->associate($treatment);
 
+        $user = User::find(Auth::user()->id);
+        $dosage->user()->associate($user);
+
         $medicine->dosages->add($dosage);
         $treatment->dosages->add($dosage);
+        $user->dosages->add($dosage);
 
         $dosage->save();
 

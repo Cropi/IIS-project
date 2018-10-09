@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->role == 'veterinarian' ? 1 : 0;
     }
+
+    public function dosages()
+    {
+        return $this->hasMany('App\Dosage');
+    }
 }

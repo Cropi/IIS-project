@@ -16,6 +16,7 @@ class MedicinesDosages extends Migration
         Schema::create('dosages', function (Blueprint $table){
             $table->integer('medicine_id')->unsigned()->nullable();
             $table->integer('treatment_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->string('disease');
             $table->integer('amount1');
             $table->string('amount2');
@@ -27,6 +28,7 @@ class MedicinesDosages extends Migration
         Schema::table('dosages', function (Blueprint $table){
             $table->foreign('medicine_id')->references('id')->on('medicines');
             $table->foreign('treatment_id')->references('id')->on('treatments');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
