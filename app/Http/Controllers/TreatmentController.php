@@ -87,13 +87,14 @@ class TreatmentController extends Controller
         $animal = Animal::find(Treatment::find($id)->animal_id);
         $owner = Owner::find($animal->owner_id);
         $user = User::find(Treatment::find($id)->user_id);
+        $treatment = Treatment::find($id);
 
         return view('sidebar.treatments.show-prescriptions')->with([
             'dosages' => $dosages,
-            'animal' => $animal->name,
-            'owner' => $owner->name,
-            'owner_id' => $owner->id,
-            'user'  => $user->name,
+            'animal' => $animal,
+            'owner' => $owner,
+            'user'  => $user,
+            'treatment' => $treatment,
         ]);
     }
 
