@@ -47,5 +47,22 @@ class UsersTableSeeder extends Seeder
             ),
         ));
 
+        DB::table('users')->insert(array(
+            array(
+                'id'                 => 3,
+                'name'               => 'nurse',
+                'email'              => 'nurse@nurse.nurse',
+                'password'           => bcrypt('aaaaaa'),
+                'role'               => 'nurse',
+                'adress'             => 'Komarno',
+                'bankAccountNumber'  => 'ASD123',
+                'wage'               => '420',
+                'remember_token'     => NULL,
+                'created_at'         => $today->format('Y-m-d H:i:s'),
+                'updated_at'         => $today->format('Y-m-d H:i:s'),
+                'lastLogin'          => $today->format('Y-m-d H:i:s'),
+            ),
+        ));
+
     }
 }

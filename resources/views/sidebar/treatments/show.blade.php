@@ -39,11 +39,11 @@
         <tr>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer"> ID </th>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(2)')" style="cursor:pointer">Diagnosis</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(3)')" style="cursor:pointer">Start date</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(3)')" style="cursor:pointer">Animal</th>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(4)')" style="cursor:pointer">State</th>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(5)')" style="cursor:pointer">Price</th>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(6)')" style="cursor:pointer">Veterinarian</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(7)')" style="cursor:pointer">Animal</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(7)')" style="cursor:pointer">Start date</th>
             <th width="0px"></th>
         </tr>
     </thead>
@@ -53,11 +53,11 @@
         <tr class="item">
             <td>{{$treatment->id}}</td>
             <td>{{$treatment->diagnosis}}</td>
-            <td>{{$treatment->startDate}}</td>
+            <td>{{$treatment->animal != NULL ? $treatment->animal->name : "-"}}</td>
             <td>{{$treatment->state}}</td>
             <td>{{$treatment->price}}</td>
             <td>{{$treatment->user->name}}</td>
-            <td>{{$treatment->animal != NULL ? $treatment->animal->name : "-"}}</td>
+            <td>{{$treatment->startDate}}</td>
             <td width="2">
                 <div class="dropdown table-view-pf-actions">
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
