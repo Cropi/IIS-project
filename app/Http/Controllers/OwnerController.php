@@ -45,10 +45,10 @@ class OwnerController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'name' => 'required|max:255',
-            'surname' => 'required|max:255',
-            'personalID' => 'required|min:6',
-            'adress' => 'max:255',
+            'name' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
+            'surname' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
+            'personalID' => 'required|min:6|unique:owners|max:20|regex:/(^([0-9A-Z]*)$)/u',
+            'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u',
         ];
         $this->validate($request, $rules);
 
@@ -100,12 +100,18 @@ class OwnerController extends Controller
     {
         $owner = Owner::find($id);
         $rules = [
-            'name' => 'required|max:255',
-            'surname' => 'required|max:255',
-            'personalID' => 'required|min:6',
-            'adress' => 'max:255',
+            'name' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
+            'surname' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
+            'personalID' => 'required|min:6|max:20|regex:/(^([0-9A-Z]*)$)/u',
+            'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u',
         ];
         $this->validate($request, $rules);
+        if ($owner->personalID != $request->input('personalID')) {
+            $ownerExist = Owner::where('personalID', '=', $request->input('personalID'))->first();
+            if ($ownerExist != NULL) {
+                return redirect()->route('owners');
+            }
+        }
 
         $owner->name = $request->input('name');
         $owner->surname = $request->input('surname');

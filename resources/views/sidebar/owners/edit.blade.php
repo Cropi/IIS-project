@@ -11,7 +11,7 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('update-owner', $owner->id) }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('personalID') ? ' has-error' : '' }}">
                             <label for="personalID" class="col-md-4 control-label" >Personal ID</label>
 
                             <div class="col-md-6">
@@ -52,14 +52,14 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('adress') ? ' has-error' : '' }}">
                             <label for="adress" class="col-md-4 control-label">Adress</label>
 
                             <div class="col-md-6">
                                 <input id="adress" type="text" class="form-control" name="adress" value="{{ $owner->adress }}">
                                 @if ($errors->has('adress'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('adress') }}</strong>
                                     </span>
                                 @endif
                             </div>
