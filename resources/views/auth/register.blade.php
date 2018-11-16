@@ -43,34 +43,51 @@
                             <label for="role" class="col-md-4 control-label">Role</label>
                             <div class="col-md-6">
                                 <!-- <input id="role" type="email" class="form-control" name="role" value="{{ old('role') }}" required> -->
-                                <select id="role" class="selectpicker form-control" name="role" value="{{ old('role') }}" required>
+                                <select id="role" class="selectpicker form-control" name="role" value="{{ old('role') }}" required autofocus>
                                     <option value="veterinarian">Veterinarian(admin)</option>
                                     <option value="nurse">Nurse</option>
                                 </select>
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('adress') ? ' has-error' : '' }}">
                             <label for="adress" class="col-md-4 control-label">Adress</label>
 
                             <div class="col-md-6">
                                 <input id="adress" type="text" class="form-control" name="adress" value="{{ old('adress') }}">
+                                @if ($errors->has('adress'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('adress') }}</strong>
+                                </span>
+                                @endif
                             </div>
+
+
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('bankAccountNumber') ? ' has-error' : '' }}">
                             <label for="bankAccountNumber" class="col-md-4 control-label">Bank account number</label>
 
                             <div class="col-md-6">
                                 <input id="bankAccountNumber" type="text" class="form-control" name="bankAccountNumber" value="{{ old('bankAccountNumber') }}">
+                                @if ($errors->has('bankAccountNumber'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('bankAccountNumber') }}</strong>
+                                </span>
+                                @endif
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('wage') ? ' has-error' : '' }}">
                             <label for="wage" class="col-md-4 control-label">Wage</label>
 
                             <div class="col-md-6">
                                 <input id="wage" type="text" class="form-control" name="wage" value="{{ old('wage') }}">
+                                @if ($errors->has('wage'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('wage') }}</strong>
+                                </span>
+                                @endif
                             </div>
                         </div>
 

@@ -45,7 +45,7 @@
                                 <!-- <input id="role" type="email" class="form-control" name="role" value="{{ old('role') }}" required> -->
                                 <select id="role" class="selectpicker form-control" name="role" @if ($user->role == 'nurse') disabled @endif>
                                     <option value="veterinarian">Veterinarian(admin)</option>
-                                        @if ($user->role == 'admin')
+                                        @if ($user->role == 'veterinarian')
                                             selected="selected"
                                         @endif
                                     <option value="nurse"
@@ -71,7 +71,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('bankAccountNumber') ? ' has-error' : '' }}">
                             <label for="bankAccountNumber" class="col-md-4 control-label">Bank account number</label>
 
                             <div class="col-md-6">
@@ -85,7 +85,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('wage') ? ' has-error' : '' }}">
                             <label for="wage" class="col-md-4 control-label">Wage</label>
 
                             <div class="col-md-6">

@@ -44,7 +44,7 @@
                             <div class="col-md-6">
                                 <!-- <input id="role" type="email" class="form-control" name="role" value="{{ old('role') }}" required> -->
                                 <select id="role" class="selectpicker form-control" name="role" required>
-                                    <option value="admin">Veterinarian(admin)</option>
+                                    <option value="veterinarian">Veterinarian(admin)</option>
                                         @if ($user->role == 'admin')
                                             selected="selected"
                                         @endif
@@ -71,31 +71,31 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('bankAccountNumber') ? ' has-error' : '' }}">
                             <label for="bankAccountNumber" class="col-md-4 control-label">Bank account number</label>
 
                             <div class="col-md-6">
                                 <input id="bankAccountNumber" type="text" class="form-control" name="bankAccountNumber" value="{{ $user->bankAccountNumber }}">
 
-                            @if ($errors->has('bankAccountNumber'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('bankAccountNumber') }}</strong>
-                                </span>
-                            @endif
+                                @if ($errors->has('bankAccountNumber'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('bankAccountNumber') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('wage') ? ' has-error' : '' }}">
                             <label for="wage" class="col-md-4 control-label">Wage</label>
 
                             <div class="col-md-6">
                                 <input id="wage" type="text" class="form-control" name="wage" value="{{ $user->wage }}">
 
-                            @if ($errors->has('wage'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('wage') }}</strong>
-                                </span>
-                            @endif
+                                @if ($errors->has('wage'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('wage') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 

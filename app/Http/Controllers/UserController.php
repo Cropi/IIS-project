@@ -82,14 +82,20 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $rules = [
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
             'email' => 'required|email|max:255',
             'password' => 'required|min:6|confirmed',
-            'adress' => 'max:255',
+            'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u',
             'bankAccountNumber' => 'regex:/(^([A-Z0-9]*)$)/u',
             'wage' => 'numeric',
         ];
         $this->validate($request, $rules);
+        if ($user->email != $request->input('email')) {
+            $userExist = User::where('email', '=', $request->input('email'))->first();
+            if ($userExist != NULL) {
+                return redirect()->route('users');
+            }
+        }
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -145,14 +151,19 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $rules = [
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
             'email' => 'required|email|max:255',
-            'wage' => 'numeric',
-            'adress' => 'max:255',
+            'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u',
             'bankAccountNumber' => 'regex:/(^([A-Z0-9]*)$)/u',
+            'wage' => 'numeric',
         ];
-
         $this->validate($request, $rules);
+        if ($user->email != $request->input('email')) {
+            $userExist = User::where('email', '=', $request->input('email'))->first();
+            if ($userExist != NULL) {
+                return redirect()->route('home');
+            }
+        }
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -162,7 +173,10 @@ class UserController extends Controller
         $user->bankAccountNumber = $request->input('bankAccountNumber');
 
         $user->save();
-
+        $data = [
+            'users' => User::get(),
+            'error' => 'update',
+        ];
         return redirect()->route('home');
     }
 }
