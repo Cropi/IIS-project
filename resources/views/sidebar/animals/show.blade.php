@@ -15,7 +15,15 @@
     <span class="pficon pficon-close"></span>
   </button>
   <span class="pficon pficon-ok"></span>
-  <strong>Great job!</strong> You have successfully modified the requested person.
+  <strong>Great job!</strong> You have successfully modified the requested animal.
+</div>
+@elseif($data['error'] == 'create')
+<div class="alert alert-success alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span class="pficon pficon-close"></span>
+  </button>
+  <span class="pficon pficon-ok"></span>
+  <strong>Great job!</strong> You have successfully created the requested animal.
 </div>
 @elseif($data['error'] == 'destroy')
 <div class="alert alert-success alert-dismissable">
@@ -23,12 +31,12 @@
     <span class="pficon pficon-close"></span>
   </button>
   <span class="pficon pficon-ok"></span>
-  <strong>Great job!</strong> You have successfully removed the requested person.
+  <strong>Great job!</strong> You have successfully removed the requested animal.
 </div>
 
 @endif
 
-<h1>Pet owners</h1>
+<h1>Animals</h1>
 <p>You can add/modify/delete animals.</p>
 <br>
 <input class="form-control" id="myInput" type="text" placeholder="Search..">
@@ -54,7 +62,7 @@
             <td>{{$animal->name}}</td>
             <td>{{$animal->type}}</td>
             <td>{{$animal->birthday}}</td>
-            <td>{{$animal->lastVisit}}</td>
+            <td>{{$animal->lastVisit != "" ? $animal->lastVisit : "It did not attend any of the treatments yet" }}</td>
             <td>{{$animal->owner == NULL ? "-" : $animal->owner->name}}</td>
             <td width="2">
                 <div class="dropdown table-view-pf-actions">

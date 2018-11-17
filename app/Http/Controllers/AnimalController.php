@@ -50,7 +50,8 @@ class AnimalController extends Controller
         $rules = [
             'name' => 'required|max:255',
             'type' => 'required|max:255',
-            // Birthday, lastVisit
+            'birthday' => 'date_format:Y-m-d H:i:s|nullable',
+            'lastVisit' => 'date_format:Y-m-d H:i:s|nullable',
         ];
         $this->validate($request, $rules);
 

@@ -15,7 +15,7 @@
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ $animal->name }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -26,10 +26,10 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Type</label>
+                            <label for="type" class="col-md-4 control-label">Type</label>
 
                             <div class="col-md-6">
-                                <input id="type" type="text" class="form-control" name="type" value="{{ old('type') }}" required autofocus>
+                                <input id="type" type="text" class="form-control" name="type" value="{{ $animal->type }}" required autofocus>
 
                                 @if ($errors->has('type'))
                                     <span class="help-block">
@@ -43,7 +43,7 @@
                             <label for="birthday" class="col-md-4 control-label">Birthday</label>
 
                             <div class="col-md-6">
-                                <input id="birthday" type="text" class="form-control" name="birthday" value="{{ old('birthday') }}"placeholder="2009-04-29 07:30:00" autofocus>
+                                <input id="birthday" type="text" class="form-control" name="birthday" value="{{ $animal->birthday }}"placeholder="2009-04-29 07:30:00" autofocus>
 
                                 @if ($errors->has('birthday'))
                                     <span class="help-block">
@@ -57,7 +57,7 @@
                             <label for="lastVisit" class="col-md-4 control-label">Last Visit</label>
 
                             <div class="col-md-6">
-                                <input id="lastVisit" type="text" class="form-control" name="lastVisit" value="{{ old('lastVisit') }}" placeholder="2018-07-29 07:00:00">
+                                <input id="lastVisit" type="text" class="form-control" name="lastVisit" value="{{ $animal->lastVisit }}" placeholder="2018-07-29 07:00:00">
                                 @if ($errors->has('lastVisit'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('lastVisit') }}</strong>
