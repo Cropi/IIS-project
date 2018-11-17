@@ -12,4 +12,9 @@ class Medicine extends Model
     {
         return $this->hasMany('App\Dosage');
     }
+
+    public function contraindications()
+    {
+        return $this->hasMany('App\Contraindication');
+    }
 }

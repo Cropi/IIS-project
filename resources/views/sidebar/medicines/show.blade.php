@@ -15,7 +15,15 @@
     <span class="pficon pficon-close"></span>
   </button>
   <span class="pficon pficon-ok"></span>
-  <strong>Great job!</strong> You have successfully modified the requested person.
+  <strong>Great job!</strong> You have successfully modified the requested medicine.
+</div>
+@elseif($data['error'] == 'create')
+<div class="alert alert-success alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span class="pficon pficon-close"></span>
+  </button>
+  <span class="pficon pficon-ok"></span>
+  <strong>Great job!</strong> You have successfully created the requested medicine.
 </div>
 @elseif($data['error'] == 'destroy')
 <div class="alert alert-success alert-dismissable">
@@ -23,7 +31,7 @@
     <span class="pficon pficon-close"></span>
   </button>
   <span class="pficon pficon-ok"></span>
-  <strong>Great job!</strong> You have successfully removed the requested person.
+  <strong>Great job!</strong> You have successfully removed the requested medicine.
 </div>
 
 @endif
@@ -40,6 +48,7 @@
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer"> ID</th>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(2)')" style="cursor:pointer">Name</th>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(3)')" style="cursor:pointer">Type</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(4)')" style="cursor:pointer">Active ingredients</th>
             <th width="0px"></th>
         </tr>
     </thead>
@@ -50,6 +59,7 @@
             <td>{{$medicine->id}}</td>
             <td>{{$medicine->name}}</td>
             <td>{{$medicine->type}}</td>
+            <td>{{$medicine->activeIngredients}}</td>
             <td width="2">
                 <div class="dropdown table-view-pf-actions">
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">

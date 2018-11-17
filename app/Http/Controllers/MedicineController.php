@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Medicine;
+use App\Contraindication;
 
 class MedicineController extends Controller
 {
@@ -46,12 +47,14 @@ class MedicineController extends Controller
         $rules = [
             'name' => 'required|max:255',
             'type' => 'required|max:255',
+            'activeIngredients' => 'max:255|nullable',
         ];
         $this->validate($request, $rules);
 
         $medicine = new Medicine();
         $medicine->name = $request->input('name');
         $medicine->type = $request->input('type');
+        $medicine->activeIngredients = $request->input('activeIngredients');
 
         $medicine->save();
 
@@ -70,7 +73,11 @@ class MedicineController extends Controller
      */
     public function show($id)
     {
-        return view('sidebar.medicines.details')->with('medicine', Medicine::find($id));
+        $data = [
+            'medicine' => Medicine::find($id),
+            'contraindications' => Contraindication::where('medicine_id', '=', $id),
+        ];
+        return view('sidebar.medicines.details')->with('data', $data);
     }
 
     /**
@@ -81,7 +88,11 @@ class MedicineController extends Controller
      */
     public function edit($id)
     {
-        return view('sidebar.medicines.edit')->with('medicine', Medicine::find($id));
+        $data = [
+            'medicine' => Medicine::find($id),
+            'contraindications' => Contraindication::where('medicine_id', '=', $id)->get(),
+        ];
+        return view('sidebar.medicines.edit')->with('data', $data);
     }
 
     /**
@@ -98,11 +109,13 @@ class MedicineController extends Controller
         $rules = [
             'name' => 'required|max:255',
             'type' => 'required|max:255',
+            'activeIngredients' => 'max:255|nullable',
         ];
         $this->validate($request, $rules);
 
         $medicine->name = $request->input('name');
         $medicine->type = $request->input('type');
+        $medicine->activeIngredients = $request->input('activeIngredients');
         $medicine->save();
 
         $data = [
@@ -120,7 +133,7 @@ class MedicineController extends Controller
      */
     public function destroy($id)
     {
-        // TODO delete all arrays which point to this object
+        $contraindications = Contraindication::where('medicine_id', '=', $id)->delete();
         $isDestroyed = Medicine::destroy($id);
         $data = [
             'medicines' => Medicine::get(),
@@ -134,14 +147,39 @@ class MedicineController extends Controller
         return view('sidebar.medicines.ask-delete')->with('medicine', Medicine::find($id));
     }
 
-    public function addContraindication($id)
+    public function addContraindication(Request $request, $id)
     {
-        // TODO ADD
-        $data = [
-            'medicines' => Medicine::get(),
-            'error' => (bool)"",
+        $contraindication = new Contraindication();
+        $rules = [
+            'contraindication' => 'required|max:255',
         ];
-        return view('sidebar.medicines.show')->with('data', $data);
+        $this->validate($request, $rules);
+
+        $contraindication->disease = $request->input('contraindication');
+        $contraindication->medicine()->associate(Medicine::find($id));
+        $contraindication->save();
+
+        $data = [
+            'medicine' => Medicine::find($id),
+            'contraindications' => Contraindication::where('medicine_id', '=', $id)->get(),
+        ];
+        return view('sidebar.medicines.edit')->with('data', $data);
+    }
+
+    public function removeContraindication(Request $request, $id)
+    {
+        $values = $request->input('check_list');
+        if ($values != "") {
+            foreach($values as $value) {
+                Contraindication::where([ [ 'medicine_id', '=', $id], [ 'disease', '=', $value]])->delete();
+            }
+        }
+
+        $data = [
+            'medicine' => Medicine::find($id),
+            'contraindications' => Contraindication::where('medicine_id', '=', $id)->get(),
+        ];
+        return view('sidebar.medicines.edit')->with('data', $data);
     }
 
     public function addTypes($id)

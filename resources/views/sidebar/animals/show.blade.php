@@ -63,7 +63,7 @@
             <td>{{$animal->type}}</td>
             <td>{{$animal->birthday}}</td>
             <td>{{$animal->lastVisit != "" ? $animal->lastVisit : "It did not attend any of the treatments yet" }}</td>
-            <td>{{$animal->owner == NULL ? "-" : $animal->owner->name}}</td>
+            <td>{{$animal->owner == NULL ? "-" : $animal->owner->name.' '.$animal->owner->surname}}</td>
             <td width="2">
                 <div class="dropdown table-view-pf-actions">
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">

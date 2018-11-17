@@ -39,6 +39,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('activeIngredients') ? ' has-error' : '' }}">
+                            <label for="activeIngredients" class="col-md-4 control-label">Active ingredients</label>
+
+                            <div class="col-md-6">
+                                <input id="activeIngredients" type="text" class="form-control" name="activeIngredients" value="{{ old('activeIngredients') }}" required autofocus>
+
+                                @if ($errors->has('activeIngredients'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('activeIngredients') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

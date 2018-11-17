@@ -290,6 +290,7 @@ class ComposerStaticInit3f0292e5546b04dd519e5edc59832e26
         'AnimalsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AnimalsTableSeeder.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
+        'Contraindications' => __DIR__ . '/../..' . '/database/migrations/2018_11_17_124931_contraindications.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',

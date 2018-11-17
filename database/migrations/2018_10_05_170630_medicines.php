@@ -17,7 +17,7 @@ class Medicines extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('type');
-            // $table->string('activeIngredients'); another table
+            $table->string('activeIngredients'); //another table
             // $table->string('contraindication'); another table
             // $table->string('types'); another table
             $table->timestamps();

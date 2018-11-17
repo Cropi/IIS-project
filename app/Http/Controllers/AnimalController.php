@@ -90,7 +90,11 @@ class AnimalController extends Controller
      */
     public function edit($id)
     {
-        return view('sidebar.animals.edit')->with('animal', Animal::find($id));
+        $data = [
+            'animal' => Animal::find($id),
+            'owners' => Owner::get(),
+        ];
+        return view('sidebar.animals.edit')->with('data', $data);
     }
 
     /**
@@ -115,6 +119,8 @@ class AnimalController extends Controller
         $animal->type = $request->input('type');
         $animal->birthday = $request->input('birthday');
         $animal->lastVisit = $request->input('lastVisit');
+        $owner = Owner::find($request->input('owner'));
+        $animal->owner()->associate($owner);
         $animal->save();
 
         $data = [

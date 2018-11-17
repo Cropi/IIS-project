@@ -25,29 +25,32 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Type</label>
-
-                            <div class="col-md-6">
-                                <input id="type" type="text" class="form-control" name="type" value="{{ old('type') }}" required autofocus>
-
-                                @if ($errors->has('type'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('type') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <label for="owner" class="col-md-4 control-label">Owner</label>
                             <div class="col-md-6">
                                 <!-- <input id="role" type="email" class="form-control" name="role" value="{{ old('role') }}" required> -->
                                 <select id="owner" class="selectpicker form-control" name="owner">
-                                    <option value="NULL">Unknown</option>
                                     @foreach($owners as $owner)
                                         <option value="{{$owner->id}}">{{$owner->name}} {{$owner->surname}} </option>
                                     @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="type" class="col-md-4 control-label">Type</label>
+                            <div class="col-md-6">
+                                <select id="type" class="selectpicker form-control" name="type">
+                                    <option value="Camel">Camel</option>
+                                    <option value="Cat">Cat</option>
+                                    <option value="Chichken">Chichken</option>
+                                    <option value="Donkey">Donkey</option>
+                                    <option value="Dog">Dog</option>
+                                    <option value="Horse">Horse</option>
+                                    <option value="Perrot">Perrot</option>
+                                    <option value="Pig">Pig</option>
+                                    <option value="Raccoon">Racoon</option>
+                                    <option value="Rabbit">Rabbit</option>
                                 </select>
                             </div>
                         </div>

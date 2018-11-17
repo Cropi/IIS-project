@@ -60,6 +60,7 @@ Route::post('/medicines/edit/{id}', 'MedicineController@update')->name('update-m
 
 Route::get('/medicines/show/{id}', 'MedicineController@show')->name('show-medicine');
 Route::post('/medicines/edit/contraindication/{id}', 'MedicineController@addContraindication')->name('add-contraindication-medicine');
+Route::post('/medicines/edit/removeContraindication/{id}', 'MedicineController@removeContraindication')->name('remove-contraindication-medicine');
 Route::post('/medicines/edit/types/{id}', 'MedicineController@addTypes')->name('add-types-medicine');
 
 
