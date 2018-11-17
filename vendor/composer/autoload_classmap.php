@@ -87,6 +87,7 @@ return array(
     'Hamcrest\\Type\\IsString' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+    'MedicineTypes' => $baseDir . '/database/migrations/2018_11_17_151906_medicine_types.php',
     'Medicines' => $baseDir . '/database/migrations/2018_10_05_170630_medicines.php',
     'MedicinesDosages' => $baseDir . '/database/migrations/2018_10_08_120026_medicines_dosages.php',
     'MedicinesTableSeeder' => $baseDir . '/database/seeds/MedicinesTableSeeder.php',

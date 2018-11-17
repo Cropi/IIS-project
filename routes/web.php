@@ -58,10 +58,10 @@ Route::get('/medicines/ask-delete/{id}', 'MedicineController@askDelete')->name('
 Route::get('/medicines/edit/{id}', 'MedicineController@edit')->name('sidebar.medicines.edit');
 Route::post('/medicines/edit/{id}', 'MedicineController@update')->name('update-medicine');
 
-Route::get('/medicines/show/{id}', 'MedicineController@show')->name('show-medicine');
 Route::post('/medicines/edit/contraindication/{id}', 'MedicineController@addContraindication')->name('add-contraindication-medicine');
 Route::post('/medicines/edit/removeContraindication/{id}', 'MedicineController@removeContraindication')->name('remove-contraindication-medicine');
-Route::post('/medicines/edit/types/{id}', 'MedicineController@addTypes')->name('add-types-medicine');
+Route::post('/medicines/edit/types/{id}', 'MedicineController@addType')->name('add-types-medicine');
+Route::post('/medicines/edit/removeType/{id}', 'MedicineController@removeType')->name('remove-type-medicine');
 
 
 // Treatments

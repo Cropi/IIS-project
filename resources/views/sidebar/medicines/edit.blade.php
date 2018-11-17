@@ -114,20 +114,22 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('remove-contraindication-medicine', $data['medicine']->id) }}">
                         {{ csrf_field() }}
 
-                        <?php $contraindicationOrder = 1; ?>
-                        @foreach($data['contraindications'] as $elem)
-                        <div class="form-group">
-                            <label for="x" class="col-md-4 control-label">Contraindication <?php echo $contraindicationOrder; ?></label>
-                            <div class="col-md-6">
-                                <div class="form-check" id="x"  name="x">
-                                    <label>
-                                        <input type="checkbox" name="check_list[]" value="{{ $elem->disease }}"> {{ $elem->disease}} <span class="label-text"></span>
-                                    </label>
+                        @if(isset($data['contraindications']))
+                            <?php $contraindicationOrder = 1; ?>
+                            @foreach($data['contraindications'] as $elem)
+                            <div class="form-group">
+                                <label for="x" class="col-md-4 control-label">Contraindication <?php echo $contraindicationOrder; ?></label>
+                                <div class="col-md-6">
+                                    <div class="form-check" id="x"  name="x">
+                                        <label>
+                                            <input type="checkbox" name="check_list[]" value="{{ $elem->disease }}"> {{ $elem->disease}} <span class="label-text"></span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php $contraindicationOrder++; ?>
-                        @endforeach
+                            <?php $contraindicationOrder++; ?>
+                            @endforeach
+                        @endif
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -146,33 +148,30 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Modify the type of animals for which can be applied to</div>
+                <div class="panel-heading">Specify medicine <strong>{{$data['medicine']->name}}</strong> for which animals can be applied to</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('add-types-medicine', $data['medicine']->id) }}">
                         {{ csrf_field() }}
 
+
                         <div class="form-group">
-                            <label for="nameType" class="col-md-4 control-label">Name</label>
+                            <label for="typeType" class="col-md-4 control-label">Type</label>
                             <div class="col-md-6">
-                                <select id="nameType" class="selectpicker form-control" name="nameType">
-                                    <option value="veterinarian">Veterinarian(admin)</option>
+                                <select id="typeType" class="selectpicker form-control" name="typeType">
+                                    <option value="Camel">Camel</option>
+                                    <option value="Cat">Cat</option>
+                                    <option value="Chichken">Chichken</option>
+                                    <option value="Donkey">Donkey</option>
+                                    <option value="Dog">Dog</option>
+                                    <option value="Horse">Horse</option>
+                                    <option value="Perrot">Perrot</option>
+                                    <option value="Pig">Pig</option>
+                                    <option value="Raccoon">Racoon</option>
+                                    <option value="Rabbit">Rabbit</option>
                                 </select>
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-                            <label for="typeType" class="col-md-4 control-label">Type</label>
-
-                            <div class="col-md-6">
-                                <input id="typeType" type="text" class="form-control" name="typeType" value="" required autofocus>
-
-                                @if ($errors->has('typeType'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('typeType') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -182,10 +181,36 @@
                                 <a role="button" class="btn btn-outline-primary" href="{{route('medicines')}}">
                                    <strong>&laquo; Go back</strong>
                                 </a>
-                                <button type="button" class="btn btn-danger">
-                                    Delete
-                                </button>
+                            </div>
+                        </div>
 
+
+                    </form>
+
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('remove-type-medicine', $data['medicine']->id) }}">
+                        {{ csrf_field() }}
+
+                        <?php $typeOrder = 1; ?>
+                        @if(isset($data['types']))
+                            @foreach($data['types'] as $elem)
+                            <div class="form-group">
+                                <label for="x" class="col-md-4 control-label">Type <?php echo $typeOrder; ?></label>
+                                <div class="col-md-6">
+                                    <div class="form-check" id="x"  name="x">
+                                        <label>
+                                            <input type="checkbox" name="check_list2[]" value="{{ $elem->type }}"> {{ $elem->type}} <span class="label-text"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php $typeOrder++; ?>
+                            @endforeach
+                        @endif
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+
+                                <button type="submit" class="btn btn-danger">Delete</button>
                             </div>
                         </div>
                     </form>

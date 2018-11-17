@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Medicine;
 use App\Contraindication;
+use App\MedicineType;
 
 class MedicineController extends Controller
 {
@@ -91,6 +92,7 @@ class MedicineController extends Controller
         $data = [
             'medicine' => Medicine::find($id),
             'contraindications' => Contraindication::where('medicine_id', '=', $id)->get(),
+            'types' => MedicineType::where('medicine_id', '=', $id)->get(),
         ];
         return view('sidebar.medicines.edit')->with('data', $data);
     }
@@ -133,8 +135,9 @@ class MedicineController extends Controller
      */
     public function destroy($id)
     {
-        $contraindications = Contraindication::where('medicine_id', '=', $id)->delete();
-        $isDestroyed = Medicine::destroy($id);
+        Contraindication::where('medicine_id', '=', $id)->delete();
+        MedicineType::where('medicine_id', '=', $id)->delete();
+        Medicine::destroy($id);
         $data = [
             'medicines' => Medicine::get(),
             'error' => 'destroy',
@@ -149,19 +152,28 @@ class MedicineController extends Controller
 
     public function addContraindication(Request $request, $id)
     {
-        $contraindication = new Contraindication();
-        $rules = [
-            'contraindication' => 'required|max:255',
-        ];
-        $this->validate($request, $rules);
+        $isThere = false;
+        foreach ((Contraindication::where('medicine_id', '=', $id)->get()) as $value) {
+            if ($value->disease == $request->input('contraindication'))
+                $isThere = true;
+        }
 
-        $contraindication->disease = $request->input('contraindication');
-        $contraindication->medicine()->associate(Medicine::find($id));
-        $contraindication->save();
+        if (!$isThere) {
+            $contraindication = new Contraindication();
+            $rules = [
+                'contraindication' => 'required|max:255',
+            ];
+            $this->validate($request, $rules);
+
+            $contraindication->disease = $request->input('contraindication');
+            $contraindication->medicine()->associate(Medicine::find($id));
+            $contraindication->save();
+        }
 
         $data = [
             'medicine' => Medicine::find($id),
             'contraindications' => Contraindication::where('medicine_id', '=', $id)->get(),
+            'types' => MedicineType::where('medicine_id', '=', $id)->get(),
         ];
         return view('sidebar.medicines.edit')->with('data', $data);
     }
@@ -178,17 +190,52 @@ class MedicineController extends Controller
         $data = [
             'medicine' => Medicine::find($id),
             'contraindications' => Contraindication::where('medicine_id', '=', $id)->get(),
+            'types' => MedicineType::where('medicine_id', '=', $id)->get(),
         ];
         return view('sidebar.medicines.edit')->with('data', $data);
     }
 
-    public function addTypes($id)
+    public function addType(Request $request, $id)
     {
-        // TODO ADD
+        $isThere = false;
+        foreach ((MedicineType::where('medicine_id', '=', $id)->get()) as $value) {
+            if ($value->type == $request->input('typeType'))
+                $isThere = true;
+        }
+
+        if (!$isThere) {
+            $medicineType = new MedicineType();
+            $rules = [
+                'typeType' => 'required|max:255',
+            ];
+            $this->validate($request, $rules);
+            $medicineType->type = $request->input('typeType');
+            $medicineType->medicine()->associate(Medicine::find($id));
+            $medicineType->save();
+        }
         $data = [
-            'medicines' => Medicine::get(),
-            'error' => (bool)"",
+            'medicine' => Medicine::find($id),
+            'contraindications' => Contraindication::where('medicine_id', '=', $id)->get(),
+            'types' => MedicineType::where('medicine_id', '=', $id)->get(),
         ];
-        return view('sidebar.medicines.show')->with('data', $data);
+
+        return view('sidebar.medicines.edit')->with('data', $data);
+    }
+
+    public function removeType(Request $request, $id)
+    {
+        $values = $request->input('check_list2');
+        if ($values != "") {
+            foreach($values as $value) {
+                MedicineType::where([ [ 'medicine_id', '=', $id], [ 'type', '=', $value]])->delete();
+            }
+        }
+
+        $data = [
+            'medicine' => Medicine::find($id),
+            'contraindications' => Contraindication::where('medicine_id', '=', $id)->get(),
+            'types' => MedicineType::where('medicine_id', '=', $id)->get(),
+        ];
+        return view('sidebar.medicines.edit')->with('data', $data);
     }
 }
