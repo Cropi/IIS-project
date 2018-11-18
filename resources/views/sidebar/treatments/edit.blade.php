@@ -76,7 +76,7 @@
                             <div class="col-md-6">
                                 <select id="forAnimal" class="selectpicker form-control" name="forAnimal">
                                     @foreach($data['animals'] as $animal)
-                                        <option value="{{$animal->id}}" {{ ($animal->id == $data['treatment']->animal->id ? "selected": "") }}>{{$animal->name}}</option>
+                                        <option value="{{$animal->id}}" @if (isset($data['treatment']->animal->id))) @if ($animal->id == $data['treatment']->animal->id)  "selected" @else "" @endif @endif>{{$animal->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
