@@ -11,6 +11,7 @@ use App\Medicine;
 use App\User;
 use App\Dosage;
 use App\Owner;
+use App\MedicineType;
 
 class TreatmentController extends Controller
 {
@@ -174,6 +175,7 @@ class TreatmentController extends Controller
         $data = [
             'treatment' => $treatment,
             'medicines' => Medicine::get(),
+            'error' => '',
         ];
         if (!isset($treatment->animal_id) || !isset($treatment->animal->owner_id)) {
 
@@ -215,8 +217,23 @@ class TreatmentController extends Controller
         $treatment->dosages->add($dosage);
         $user->dosages->add($dosage);
 
+        $animal = Animal::find($treatment->animal_id);
+        $medicineTypes = MedicineType::where([['medicine_id', '=', $medicine->id], ['type', '=', $animal->type]])->get();
+        if (count($medicineTypes) == 0) {
+            $data = [
+                'treatment' => $treatment,
+                'medicines' => Medicine::get(),
+                'error' => 'error',
+            ];
+            return view('sidebar.treatments.add-prescription')->with('data', $data);
+        }
+
         $dosage->save();
 
-        return redirect()->route('treatments');
+        $data = [
+            'treatments' => Treatment::get(),
+            'error' => 'add-prescription',
+        ];
+        return view('sidebar.treatments.show')->with('data', $data);
     }
 }

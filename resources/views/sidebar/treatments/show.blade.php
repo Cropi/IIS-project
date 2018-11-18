@@ -17,6 +17,14 @@
   <span class="pficon pficon-ok"></span>
   <strong>Great job!</strong> You have successfully updated the requested treatment.
 </div>
+@elseif($data['error'] == 'add-prescription')
+<div class="alert alert-success alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span class="pficon pficon-close"></span>
+  </button>
+  <span class="pficon pficon-ok"></span>
+  <strong>Great job!</strong> You have successfully added the requested prescription.
+</div>
 @elseif($data['error'] == 'create')
 <div class="alert alert-success alert-dismissable">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
