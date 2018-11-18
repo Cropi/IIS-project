@@ -37,7 +37,8 @@
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(3)')" style="cursor:pointer">Medicine</th>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(4)')" style="cursor:pointer">Amount</th>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(5)')" style="cursor:pointer">For how much time</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(6)')" style="cursor:pointer">Prescipted by</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(6)')" style="cursor:pointer">Person who gave the medicine</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(7)')" style="cursor:pointer">Prescipted by</th>
         </tr>
     </thead>
     <tbody id="myTable">
@@ -47,8 +48,9 @@
             <td></td>
             <td>{{ $dosage->disease }}</td>
             <td>{{ $dosage->medicine['name'] }}</td>
-            <td>{{ $dosage->amount1}} / {{$dosage->amount2 }}(s)</td>
-            <td>{{ $dosage->timeToConsume1 }}  {{$dosage->timeToConsume2}}(s)</td>
+            <td>@if($dosage->amount1 != NULL){{ $dosage->amount1}} / {{$dosage->amount2 }}(s) @else - @endif</td>
+            <td>@if($dosage->timeToConsume1 != NULL){{ $dosage->timeToConsume1 }}  {{$dosage->timeToConsume2}}(s) @else - @endif</td>
+            <td>@if(isset($dosage->medicineGivenBy)) {{$dosage->medicineGivenBy->name}} @else - @endif</td>
             <td> {{ $dosage->user['name'] }} </td>
         </tr>
         @endforeach

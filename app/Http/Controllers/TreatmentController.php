@@ -175,12 +175,14 @@ class TreatmentController extends Controller
         $data = [
             'treatment' => $treatment,
             'medicines' => Medicine::get(),
+            'users' => User::get(),
             'error' => '',
         ];
         if (!isset($treatment->animal_id) || !isset($treatment->animal->owner_id)) {
 
             $data = [
                 'treatments' => Treatment::get(),
+                'users' => User::get(),
                 'error' => 'error',
             ];
             return view('sidebar.treatments.show')->with('data', $data);
@@ -191,18 +193,28 @@ class TreatmentController extends Controller
     public function storePrescription(Request $request, $id)
     {
         $dosage = new Dosage();
+
         $rules = [
             'disease'        => 'required|max:255',
-            'amount1'        => 'numeric|min:0',
-            'timeToConsume1' => 'numeric|min:0',
         ];
+
+        $needsExtraHelp = $request->input('performedBy');
+        if ($needsExtraHelp) {
+            $extrapHelp = User::find($request->input('givenBy'));
+            $dosage->medicineGivenBy()->associate($extrapHelp);
+            $extrapHelp->medicinesGivenBy->add($dosage);
+        }
+        else {
+            $rules['amount1'] = 'numeric|min:0';
+            $rules['timeToConsume1'] = 'numeric|min:0';
+            $dosage->amount1 = $request->input('amount1');
+            $dosage->amount2 = $request->input('amount2');
+            $dosage->timeToConsume1 = $request->input('timeToConsume1');
+            $dosage->timeToConsume2 = $request->input('timeToConsume2');
+        }
         $this->validate($request, $rules);
 
         $dosage->disease = $request->input('disease');
-        $dosage->amount1 = $request->input('amount1');
-        $dosage->amount2 = $request->input('amount2');
-        $dosage->timeToConsume1 = $request->input('timeToConsume1');
-        $dosage->timeToConsume2 = $request->input('timeToConsume2');
 
         $medicine = Medicine::find($request->input('forMedicine'));
         $dosage->medicine()->associate($medicine);
@@ -223,6 +235,7 @@ class TreatmentController extends Controller
             $data = [
                 'treatment' => $treatment,
                 'medicines' => Medicine::get(),
+                'users' => User::get(),
                 'error' => 'error',
             ];
             return view('sidebar.treatments.add-prescription')->with('data', $data);

@@ -23,4 +23,9 @@ class Dosage extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function medicineGivenBy()
+    {
+        return $this->belongsTo('App\User', 'user_id_given_by');
+    }
+
 }

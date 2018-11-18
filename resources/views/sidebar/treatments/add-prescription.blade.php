@@ -2,6 +2,13 @@
 
 @section('content')
 
+<style>
+#conditional_part{
+  padding: 6px 8px;
+  display:none;
+}
+</style>
+
 @if ($data['error'] == 'error')
 <div class="alert alert-danger alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -63,49 +70,73 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('amount1') ? ' has-error' : '' }}">
-                            <label for="amount1" class="col-md-4 control-label">How many?</label>
-
-                            <div class="col-md-4">
-                                <input id="amount1" type="text" class="form-control" name="amount1" value="{{old('amount1')}}" required>
-
-                                @if ($errors->has('amount1'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('amount1') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-
-                            <label for="amount2" class="col-md-1 control-label">/</label>
-                            <div class="col-md-2">
-                                <select id="amount2" class="selectpicker form-control" name="amount2">
-                                    <option value="hour"> Hour(s)</option>
-                                    <option value="day"> Days(s) </option>
-                                    <option value="week"> Week(s) </option>
-                                    <option value="month"> Month(s) </option>
-                                </select>
+                        <div class="form-group">
+                            <label for="x" class="col-md-4 control-label">Do you need someones help?</label>
+                            <div class="col-md-6">
+                                    <label>
+                                        <input id="performedBy" type="checkbox"  name="performedBy" >
+                                    </label>
                             </div>
                         </div>
 
-                        <div class="form-group {{$errors->has('timeToConsume1') ? ' has-error' : '' }}">
-                            <label for="timeToConsume1" class="col-md-4 control-label">For how long?</label>
-                            <div class="col-md-4">
-                                <input id="timeToConsume1" type="text" class="form-control" name="timeToConsume1" value="{{old('timeToConsume1')}}" required>
+                        <div id="conditional_part1" hidden="true">
+                            <div class="form-group">
+                                <label for="givenBy" class="col-md-4 control-label">Medicine will be given by</label>
+                                <div class="col-md-6">
+                                    <select id="givenBy" class="selectpicker form-control" name="givenBy">
+                                        @foreach($data['users'] as $user)
+                                            <option value="{{$user->id}}" >{{$user->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
-                                @if ($errors->has('timeToConsume1'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('timeToConsume1') }}</strong>
-                                    </span>
-                                @endif
+                        <div id="conditional_part2">
+                            <div class="form-group{{ $errors->has('amount1') ? ' has-error' : '' }}">
+                                <label for="amount1" class="col-md-4 control-label">How many?</label>
+
+                                <div class="col-md-4">
+                                    <input id="amount1" type="text" class="form-control" name="amount1" value="{{old('amount1')}}" >
+
+                                    @if ($errors->has('amount1'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('amount1') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <label for="amount2" class="col-md-1 control-label">/</label>
+                                <div class="col-md-2">
+                                    <select id="amount2" class="selectpicker form-control" name="amount2">
+                                        <option value="hour"> Hour(s)</option>
+                                        <option value="day"> Days(s) </option>
+                                        <option value="week"> Week(s) </option>
+                                        <option value="month"> Month(s) </option>
+                                    </select>
+                                </div>
                             </div>
 
-                            <label for="timeToConsume2" class="col-md-1 control-label">/</label>
-                            <div class="col-md-2">
-                                <select id="timeToConsume2" class="selectpicker form-control" name="timeToConsume2">
-                                    <option value="day"> Days(s) </option>
-                                    <option value="week"> Week(s) </option>
-                                    <option value="month"> Month(s) </option>
-                                </select>
+                            <div class="form-group {{$errors->has('timeToConsume1') ? ' has-error' : '' }}">
+                                <label for="timeToConsume1" class="col-md-4 control-label">For how long?</label>
+                                <div class="col-md-4">
+                                    <input id="timeToConsume1" type="text" class="form-control" name="timeToConsume1" value="{{old('timeToConsume1')}}" >
+
+                                    @if ($errors->has('timeToConsume1'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('timeToConsume1') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <label for="timeToConsume2" class="col-md-1 control-label">/</label>
+                                <div class="col-md-2">
+                                    <select id="timeToConsume2" class="selectpicker form-control" name="timeToConsume2">
+                                        <option value="day"> Days(s) </option>
+                                        <option value="week"> Week(s) </option>
+                                        <option value="month"> Month(s) </option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
@@ -122,4 +153,22 @@
         </div>
     </div>
 </div>
+
+<script>
+
+$(document).ready(function() {
+    $('#performedBy').change(function() {
+        if(this.checked != true){
+              $("#conditional_part1").hide();
+              $("#conditional_part2").show();
+         }
+      else{
+            $("#conditional_part1").show();
+            $("#conditional_part2").hide();
+      }
+    });
+});
+
+</script>
+
 @endsection
