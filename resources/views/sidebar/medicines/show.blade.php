@@ -65,9 +65,9 @@
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                         <span class="fa fa-ellipsis-v"></span></button>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownKebabRight">
-                        <li><a href="{{route('sidebar.medicines.edit', $medicine->id)}}" >Edit details</a></li></li>
+                        <li><a href="{{route('sidebar.medicines.edit', $medicine->id)}}" >Edit medicine</a></li></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{{route('sidebar.medicines.ask-delete', $medicine->id)}}">Delete owner</a></li>
+                        <li><a href="{{route('sidebar.medicines.ask-delete', $medicine->id)}}">Delete medicine</a></li>
                 </div>
             </td>
         </tr>

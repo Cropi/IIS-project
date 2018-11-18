@@ -69,9 +69,9 @@
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                         <span class="fa fa-ellipsis-v"></span></button>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownKebabRight">
-                        <li><a href="{{route('sidebar.animals.edit', $animal->id)}}" >Modify owner</a></li></li>
+                        <li><a href="{{route('sidebar.animals.edit', $animal->id)}}" >Edit animal</a></li></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{{route('sidebar.animals.ask-delete', $animal->id)}}">Delete owner</a></li>
+                        <li><a href="{{route('sidebar.animals.ask-delete', $animal->id)}}">Delete animal</a></li>
                 </div>
             </td>
         </tr>

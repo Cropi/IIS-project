@@ -71,8 +71,8 @@
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                         <span class="fa fa-ellipsis-v"></span></button>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownKebabRight">
-                        <li><a href="{{route('show-treatment', $treatment->id)}}" >Show details</a></li></li>
-                        <li><a href="{{route('sidebar.treatments.edit', $treatment->id)}}" >Modify details</a></li></li>
+                        <li><a href="{{route('show-treatment', $treatment->id)}}" >Show treatment</a></li></li>
+                        <li><a href="{{route('sidebar.treatments.edit', $treatment->id)}}" >Edit treatment</a></li></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="{{route('add-prescription-medicine', $treatment->id)}}" >Add prescription</a></li></li>
                         <li role="separator" class="divider"></li>
