@@ -7,7 +7,7 @@
         <span class="pficon pficon-close"></span>
     </button>
     <span class="pficon pficon-error-circle-o"></span>
-    <strong>Hey there is a problem!</strong> You can not remove yourself!
+    <strong>Hey there is a problem!</strong> You can not add prescriptions if the treatments owner/animal has been removed!
 </div>
 @elseif($data['error'] == 'update')
 <div class="alert alert-success alert-dismissable">
@@ -15,7 +15,15 @@
     <span class="pficon pficon-close"></span>
   </button>
   <span class="pficon pficon-ok"></span>
-  <strong>Great job!</strong> You have successfully modified the requested person.
+  <strong>Great job!</strong> You have successfully updated the requested treatment.
+</div>
+@elseif($data['error'] == 'create')
+<div class="alert alert-success alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span class="pficon pficon-close"></span>
+  </button>
+  <span class="pficon pficon-ok"></span>
+  <strong>Great job!</strong> You have successfully created the requested treatment.
 </div>
 @elseif($data['error'] == 'destroy')
 <div class="alert alert-success alert-dismissable">
@@ -23,7 +31,7 @@
     <span class="pficon pficon-close"></span>
   </button>
   <span class="pficon pficon-ok"></span>
-  <strong>Great job!</strong> You have successfully removed the requested person.
+  <strong>Great job!</strong> You have successfully removed the requested treatment.
 </div>
 
 @endif

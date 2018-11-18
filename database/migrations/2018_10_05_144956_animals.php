@@ -24,7 +24,7 @@ class Animals extends Migration
         });
 
         Schema::table('animals', function (Blueprint $table){
-            $table->foreign('owner_id')->references('id')->on('owners');
+            $table->foreign('owner_id')->references('id')->on('owners')->onDelete('SET NULL');
         });
     }
 

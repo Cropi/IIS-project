@@ -26,8 +26,8 @@ class Treatments extends Migration
         });
 
         Schema::table('treatments', function (Blueprint $table){
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('animal_id')->references('id')->on('animals');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
+            $table->foreign('animal_id')->references('id')->on('animals')->onDelete('SET NULL');
             // TODO another table for medicines
         });
     }

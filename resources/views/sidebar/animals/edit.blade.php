@@ -31,9 +31,12 @@
                                 <!-- <input id="role" type="email" class="form-control" name="role" value="{{ old('role') }}" required> -->
                                 <select id="owner" class="selectpicker form-control" name="owner">
                                     @foreach($data['owners'] as $owner)
+                                        <option value="NULL">Missing</option>
                                         <option value="{{$owner->id}}"
-                                            @if ($owner->name == $data['animal']->owner->name)
-                                                selected="selected"
+                                            @if (isset($data['animal']->owner->name))
+                                                @if ($owner->name == $data['animal']->owner->name)
+                                                    selected="selected"
+                                                @endif
                                             @endif
                                             >{{$owner->name}} {{$owner->surname}}
                                         </option>

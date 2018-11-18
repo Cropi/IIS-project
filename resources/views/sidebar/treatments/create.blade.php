@@ -42,12 +42,10 @@
                             <label for="state" class="col-md-4 control-label">State</label>
 
                             <div class="col-md-6">
-                                <select id="state" class="selectpicker form-control" name="state">
-                                    <option value="inProcess"> In process</option>
-                                    <option value="finished"> Finished </option>
-                                </select>
+                                <input id="state" type="text"  class="form-control" name="state" value="inProcess" readonly>
                             </div>
                         </div>
+
 
                         <div class="form-group {{$errors->has('price') ? ' has-error' : '' }}">
                             <label for="price" class="col-md-4 control-label">Price</label>

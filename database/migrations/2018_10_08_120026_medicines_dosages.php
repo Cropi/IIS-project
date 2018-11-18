@@ -26,9 +26,9 @@ class MedicinesDosages extends Migration
         });
 
         Schema::table('dosages', function (Blueprint $table){
-            $table->foreign('medicine_id')->references('id')->on('medicines');
-            $table->foreign('treatment_id')->references('id')->on('treatments');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('medicine_id')->references('id')->on('medicines')->onDelete('cascade');
+            $table->foreign('treatment_id')->references('id')->on('treatments')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

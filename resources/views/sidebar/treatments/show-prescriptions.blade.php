@@ -19,9 +19,9 @@
 
 <h1>Additional informations about the treament</h1>
 <h3>    Diagnosis: <strong>{{$treatment->diagnosis}}</strong><br/></h3><h3>
-        Pet name: <strong>{{$animal->name}}</strong><br/></h3><h3>
-        Owner name: <strong>{{$owner->name}}</strong><br/></h3><h3>
-        Veterinarian who started the treatment: <strong>{{$user->name}}</strong><br/></h3><h3>
+        Pet name: <strong>{{$animal != NULL ? $animal->name : "It has been removed"}}</strong><br/></h3><h3>
+        Owner name: <strong>{{$owner != NULL ? $owner->name.' '.$owner->surname : "It has been removed"}}</strong><br/></h3><h3>
+        Veterinarian who started the treatment: <strong>{{$user != NULL ? $user->name : "It has been removed"}}</strong><br/></h3><h3>
     </h3><br>
 
 <h1>List of all prescriptions about the treatment</h1>

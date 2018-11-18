@@ -85,7 +85,9 @@ class TreatmentController extends Controller
     {
         $dosages = Dosage::where('treatment_id', '=', $id)->get();
         $animal = Animal::find(Treatment::find($id)->animal_id);
-        $owner = Owner::find($animal->owner_id);
+        $owner = NULL;
+        if (isset($animal->owner_id))
+            $owner = Owner::find($animal->owner_id);
         $user = User::find(Treatment::find($id)->user_id);
         $treatment = Treatment::find($id);
 
@@ -173,6 +175,14 @@ class TreatmentController extends Controller
             'treatment' => $treatment,
             'medicines' => Medicine::get(),
         ];
+        if (!isset($treatment->animal_id) || !isset($treatment->animal->owner_id)) {
+
+            $data = [
+                'treatments' => Treatment::get(),
+                'error' => 'error',
+            ];
+            return view('sidebar.treatments.show')->with('data', $data);
+        }
         return view('sidebar.treatments.add-prescription')->with('data', $data);
     }
 

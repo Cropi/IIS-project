@@ -15,14 +15,14 @@
                             <label for="pet" class="col-md-4 control-label">Pet name</label>
 
                             <div class="col-md-6">
-                                <input id="pet" type="text" class="form-control" name="pet" value="{{$data['treatment']->animal->name}}" disabled>
+                                <input id="pet" type="text" class="form-control" name="pet" value="{{ $data['treatment']->animal->name }}" disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="owner" class="col-md-4 control-label">Owner name</label>
 
                             <div class="col-md-6">
-                                <input id="owner" type="text" class="form-control" name="owner" value="{{$data['treatment']->animal->owner->name}} {{$data['treatment']->animal->owner->surname}}" disabled>
+                                <input id="owner" type="text" class="form-control" name="owner" value="{{ $data['treatment']->animal->owner->name.' '.$data['treatment']->animal->owner->surname}}" disabled>
                             </div>
                         </div>
 
@@ -43,7 +43,7 @@
                             <label for="disease" class="col-md-4 control-label">Disease</label>
 
                             <div class="col-md-6">
-                                <input id="disease" type="text" class="form-control" name="disease" value="" required>
+                                <input id="disease" type="text" class="form-control" name="disease" value="{{old('disease')}}" required>
 
                                 @if ($errors->has('disease'))
                                     <span class="help-block">
@@ -53,15 +53,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('amount1') ? ' has-error' : '' }}">
                             <label for="amount1" class="col-md-4 control-label">How many?</label>
 
                             <div class="col-md-4">
-                                <input id="amount1" type="text" class="form-control" name="amount1" value="" required>
+                                <input id="amount1" type="text" class="form-control" name="amount1" value="{{old('amount1')}}" required>
 
-                                @if ($errors->has('amount'))
+                                @if ($errors->has('amount1'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('amount') }}</strong>
+                                        <strong>{{ $errors->first('amount1') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -77,7 +77,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group {{$errors->has('amount') ? ' has-error' : '' }}">
+                        <div class="form-group {{$errors->has('timeToConsume1') ? ' has-error' : '' }}">
                             <label for="timeToConsume1" class="col-md-4 control-label">For how long?</label>
                             <div class="col-md-4">
                                 <input id="timeToConsume1" type="text" class="form-control" name="timeToConsume1" value="{{old('timeToConsume1')}}" required>
