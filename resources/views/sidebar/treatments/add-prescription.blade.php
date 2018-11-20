@@ -45,7 +45,7 @@
 
 
                         <div class="form-group">
-                            <label for="forMedicine" class="col-md-4 control-label">Medicine</label>
+                            <label for="forMedicine" class="col-md-4 control-label">Medicine <a data-toggle="modal" data-target="#about-modal" tabindex="6">(?)</a></label>
 
                             <div class="col-md-6">
                                 <select id="forMedicine" class="selectpicker form-control" name="forMedicine">
@@ -154,6 +154,24 @@
     </div>
 </div>
 
+<!-- Forgot password modal -->
+<div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content about-modal-pf">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+           <span class="pficon pficon-close"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div id="additionaInformations">
+
+            </div>
+        </div>
+      </div>
+   </div>
+</div>
+
 <script>
 
 $(document).ready(function() {
@@ -168,6 +186,46 @@ $(document).ready(function() {
       }
     });
 });
+
+$(document).ready(function() {
+    var types  = <?php echo $types; ?>;
+    var contraindications  = <?php echo $contraindications; ?>;
+
+    var medicineID = document.getElementById('forMedicine').value;
+
+    $("#additionaInformations").html('<h1>Medicine can be used for</h1>');
+    types.forEach(function(x) {
+        if (x['medicine_id'] == medicineID)
+            $("#additionaInformations").html($('#additionaInformations').html() + '<li>' + x['type'] + '</li>');
+    });
+
+    $("#additionaInformations").html($('#additionaInformations').html() + '<h1> Contraindications </h1>');
+    contraindications.forEach(function(x) {
+        if (x['medicine_id'] == medicineID)
+            $("#additionaInformations").html($('#additionaInformations').html() + '<li>' + x['disease'] + '</li>');
+    });
+
+    $('#forMedicine').change(function() {
+        var types  = <?php echo $types; ?>;
+        var contraindications  = <?php echo $contraindications; ?>;
+
+        var medicineID = document.getElementById('forMedicine').value;
+
+        $("#additionaInformations").html('<h1>Medicine can be used for</h1>');
+
+        types.forEach(function(x) {
+            if (x['medicine_id'] == medicineID)
+                $("#additionaInformations").html($('#additionaInformations').html() + '<li>' + x['type'] + '</li>');
+        });
+
+        $("#additionaInformations").html($('#additionaInformations').html() + '<h1> Contraindications </h1>');
+        contraindications.forEach(function(x) {
+            if (x['medicine_id'] == medicineID)
+                $("#additionaInformations").html($('#additionaInformations').html() + '<li>' + x['disease'] + '</li>');
+        });
+    });
+});
+
 
 </script>
 

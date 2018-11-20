@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use View;
 
 use App\Treatment;
 use App\Animal;
@@ -12,9 +13,16 @@ use App\User;
 use App\Dosage;
 use App\Owner;
 use App\MedicineType;
+use App\Contraindication;
 
 class TreatmentController extends Controller
 {
+    public function __construct()
+    {
+        View::share('types', MedicineType::get());
+        View::share('contraindications', Contraindication::get());
+    }
+
     /**
      * Display a listing of the resource.
      *
