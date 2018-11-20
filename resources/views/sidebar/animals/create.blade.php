@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <label for="name" class="col-md-4 control-label">Name *</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="owner" class="col-md-4 control-label">Owner</label>
+                            <label for="owner" class="col-md-4 control-label">Owner *</label>
                             <div class="col-md-6">
                                 <!-- <input id="role" type="email" class="form-control" name="role" value="{{ old('role') }}" required> -->
                                 <select id="owner" class="selectpicker form-control" name="owner">
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="type" class="col-md-4 control-label">Type</label>
+                            <label for="type" class="col-md-4 control-label">Type *</label>
                             <div class="col-md-6">
                                 <select id="type" class="selectpicker form-control" name="type">
                                     <option value="Camel">Camel</option>
@@ -59,7 +59,7 @@
                             <label for="birthday" class="col-md-4 control-label">Birthday</label>
 
                             <div class="col-md-6">
-                                <input id="birthday" type="text" class="form-control" name="birthday" value="{{ old('birthday') }}"placeholder="2009-04-29 07:30:00" autofocus>
+                                <input id="birthday" type="text" class="form-control" name="birthday" value="{{ old('birthday') }}"placeholder="2009-04-29 07:30:00">
 
                                 @if ($errors->has('birthday'))
                                     <span class="help-block">

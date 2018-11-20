@@ -45,7 +45,7 @@
 
 
                         <div class="form-group">
-                            <label for="forMedicine" class="col-md-4 control-label">Medicine <a data-toggle="modal" data-target="#about-modal" tabindex="6">(?)</a></label>
+                            <label for="forMedicine" class="col-md-4 control-label">Medicine *<a data-toggle="modal" data-target="#about-modal" tabindex="6">(?)</a></label>
 
                             <div class="col-md-6">
                                 <select id="forMedicine" class="selectpicker form-control" name="forMedicine">
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('disease') ? ' has-error' : '' }}">
-                            <label for="disease" class="col-md-4 control-label">Disease</label>
+                            <label for="disease" class="col-md-4 control-label">Disease *</label>
 
                             <div class="col-md-6">
                                 <input id="disease" type="text" class="form-control" name="disease" value="{{old('disease')}}" required>
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="x" class="col-md-4 control-label">Do you need someones help?</label>
+                            <label for="x" class="col-md-4 control-label">Do you need someones help? <a data-toggle="modal" data-target="#help-modal" tabindex="6">(?)</a></label>
                             <div class="col-md-6">
                                     <label>
                                         <input id="performedBy" type="checkbox"  name="performedBy" >
@@ -81,7 +81,7 @@
 
                         <div id="conditional_part1" hidden="true">
                             <div class="form-group">
-                                <label for="givenBy" class="col-md-4 control-label">Medicine will be given by</label>
+                                <label for="givenBy" class="col-md-4 control-label">Medicine will be given by *</label>
                                 <div class="col-md-6">
                                     <select id="givenBy" class="selectpicker form-control" name="givenBy">
                                         @foreach($data['users'] as $user)
@@ -94,7 +94,7 @@
 
                         <div id="conditional_part2">
                             <div class="form-group{{ $errors->has('amount1') ? ' has-error' : '' }}">
-                                <label for="amount1" class="col-md-4 control-label">How many?</label>
+                                <label for="amount1" class="col-md-4 control-label">How many? *</label>
 
                                 <div class="col-md-4">
                                     <input id="amount1" type="text" class="form-control" name="amount1" value="{{old('amount1')}}" >
@@ -118,7 +118,7 @@
                             </div>
 
                             <div class="form-group {{$errors->has('timeToConsume1') ? ' has-error' : '' }}">
-                                <label for="timeToConsume1" class="col-md-4 control-label">For how long?</label>
+                                <label for="timeToConsume1" class="col-md-4 control-label">For how long? *</label>
                                 <div class="col-md-4">
                                     <input id="timeToConsume1" type="text" class="form-control" name="timeToConsume1" value="{{old('timeToConsume1')}}" >
 
@@ -154,7 +154,7 @@
     </div>
 </div>
 
-<!-- Forgot password modal -->
+
 <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
    <div class="modal-dialog">
       <div class="modal-content about-modal-pf">
@@ -167,6 +167,22 @@
             <div id="additionaInformations">
 
             </div>
+        </div>
+      </div>
+   </div>
+</div>
+
+<div class="modal fade" id="help-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content about-modal-pf">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+           <span class="pficon pficon-close"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <h2> According to medicine's type, sometimes it is necessary to use someones help to get the medicine into users body</h2>
+            <p> For example: To inject an injection </p>
         </div>
       </div>
    </div>

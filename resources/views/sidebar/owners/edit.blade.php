@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('personalID') ? ' has-error' : '' }}">
-                            <label for="personalID" class="col-md-4 control-label" >Personal ID</label>
+                            <label for="personalID" class="col-md-4 control-label" >Personal ID *</label>
 
                             <div class="col-md-6">
                                 <input id="personalID" type="text" class="form-control" name="personalID" value="{{$owner->personalID}}">
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <label for="name" class="col-md-4 control-label">Name *</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ $owner->name }}" required autofocus>
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('surname') ? ' has-error' : '' }}">
-                            <label for="surname" class="col-md-4 control-label">Surname</label>
+                            <label for="surname" class="col-md-4 control-label">Surname *</label>
 
                             <div class="col-md-6">
                                 <input id="surname" type="text" class="form-control" name="surname" value="{{ $owner->surname }}" required autofocus>

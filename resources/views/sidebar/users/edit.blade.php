@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <label for="name" class="col-md-4 control-label">Name *</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" required autofocus>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">E-Mail Address *</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" required>
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="role" class="col-md-4 control-label">Role</label>
+                            <label for="role" class="col-md-4 control-label">Role *</label>
                             <div class="col-md-6">
                                 <!-- <input id="role" type="email" class="form-control" name="role" value="{{ old('role') }}" required> -->
                                 <select id="role" class="selectpicker form-control" name="role" required>
@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('adress') ? ' has-error' : '' }}">
-                            <label for="adress" class="col-md-4 control-label">Adress</label>
+                            <label for="adress" class="col-md-4 control-label">Adress *</label>
 
                             <div class="col-md-6">
                                 <input id="adress" type="text" class="form-control" name="adress" value="{{ $user->adress }}">
@@ -72,7 +72,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('bankAccountNumber') ? ' has-error' : '' }}">
-                            <label for="bankAccountNumber" class="col-md-4 control-label">Bank account number</label>
+                            <label for="bankAccountNumber" class="col-md-4 control-label">Bank account number *</label>
 
                             <div class="col-md-6">
                                 <input id="bankAccountNumber" type="text" class="form-control" name="bankAccountNumber" value="{{ $user->bankAccountNumber }}">
@@ -86,7 +86,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('wage') ? ' has-error' : '' }}">
-                            <label for="wage" class="col-md-4 control-label">Wage</label>
+                            <label for="wage" class="col-md-4 control-label">Wage *</label>
 
                             <div class="col-md-6">
                                 <input id="wage" type="text" class="form-control" name="wage" value="{{ $user->wage }}">
@@ -101,7 +101,7 @@
 
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label">Password *</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -115,7 +115,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password *</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>

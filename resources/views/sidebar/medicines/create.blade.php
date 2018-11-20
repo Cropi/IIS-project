@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <label for="name" class="col-md-4 control-label">Name *</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Type</label>
+                            <label for="name" class="col-md-4 control-label">Type *</label>
 
                             <div class="col-md-6">
                                 <input id="type" type="text" class="form-control" name="type" value="{{ old('type') }}" required autofocus>
@@ -40,10 +40,10 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('activeIngredients') ? ' has-error' : '' }}">
-                            <label for="activeIngredients" class="col-md-4 control-label">Active ingredients</label>
+                            <label for="activeIngredients" class="col-md-4 control-label">Active ingredient</label>
 
                             <div class="col-md-6">
-                                <input id="activeIngredients" type="text" class="form-control" name="activeIngredients" value="{{ old('activeIngredients') }}" required autofocus>
+                                <input id="activeIngredients" type="text" class="form-control" name="activeIngredients" value="{{ old('activeIngredients') }}">
 
                                 @if ($errors->has('activeIngredients'))
                                     <span class="help-block">

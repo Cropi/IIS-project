@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('diagnosis') ? ' has-error' : '' }}">
-                            <label for="diagnosis" class="col-md-4 control-label">Diagnosis</label>
+                            <label for="diagnosis" class="col-md-4 control-label">Diagnosis *</label>
 
                             <div class="col-md-6">
                                 <input id="diagnosis" type="text" class="form-control" name="diagnosis" value="{{ old('diagnosis') }}">
@@ -28,7 +28,7 @@
                             <label for="startDate" class="col-md-4 control-label">Start date</label>
 
                             <div class="col-md-6">
-                                <input id="startDate" type="text" class="form-control" name="startDate" value="{{ old('startDate') }}">
+                                <input id="startDate" type="text" class="form-control" name="startDate" placeholder="2018-10-20 09:30:00" value="{{ old('startDate') }}">
 
                                 @if ($errors->has('startDate'))
                                     <span class="help-block">
@@ -48,7 +48,7 @@
 
 
                         <div class="form-group {{$errors->has('price') ? ' has-error' : '' }}">
-                            <label for="price" class="col-md-4 control-label">Price</label>
+                            <label for="price" class="col-md-4 control-label">Price *</label>
 
                             <div class="col-md-6">
                                 <input id="price" type="text" class="form-control" name="price" value="{{ old('price') }}">
@@ -69,7 +69,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="forAnimal" class="col-md-4 control-label">Animal</label>
+                            <label for="forAnimal" class="col-md-4 control-label">Animal *</label>
 
                             <div class="col-md-6">
                                 <select id="forAnimal" class="selectpicker form-control" name="forAnimal">
