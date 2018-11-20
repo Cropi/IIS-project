@@ -12,13 +12,12 @@
 */
 
 
-Route::get('/', [ 'middleware' => 'auth', 'uses' => 'HomeController@index' ]);
 
 Route::get('/{pattern}/{example}', function ($pattern, $example) {
     return view('patternfly.'.$pattern.'.'.$example);
 });
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/notFoundHttpException', function () {
     return view('notFoundHttpException');

@@ -4,11 +4,10 @@
   <head>
     <meta charset="utf-8">
     <title>{{env('APP_NAME')}}</title>
+    <link rel="icon" href="img/hostpital_logo.png" type="image/x-icon" />
 
-    <!--<link href="/css/app.css" rel="stylesheet" type="text/css">-->
     <link href="/css/patternfly.min.css" rel="stylesheet" type="text/css">
     <link href="/css/patternfly-additions.min.css" rel="stylesheet" type="text/css">
-    <!--<link href="/css/so2platform/styles.css" rel="stylesheet" type="text/css">-->
   </head>
 
   <!-- Main part -->
@@ -17,7 +16,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div id="brand">
-            <img src="" alt="Veterinary Information System">
+            <img src="img/hostpital_logo.png" alt="Veterinary Information System">
           </div><!--/#brand-->
         </div><!--/.col-*-->
         <div class="col-sm-7 col-md-6 col-lg-5 login"> <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">

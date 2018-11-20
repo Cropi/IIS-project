@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>{{env('APP_NAME')}}</title>
 
-    <!--<link href="/css/app.css" rel="stylesheet" type="text/css">-->
+    <link rel="icon" href="img/hostpital_logo.png" type="image/x-icon" />
     <link href="/css/patternfly.min.css" rel="stylesheet" type="text/css">
     <link href="/css/patternfly-additions.min.css" rel="stylesheet" type="text/css">
     <!--<link href="/css/so2platform/styles.css" rel="stylesheet" type="text/css">-->

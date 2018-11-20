@@ -48,10 +48,7 @@ class Handler extends ExceptionHandler
             $exception = new NotFoundHttpException($exception->getMessage(), $exception);
         }
 
-        if($exception->getStatusCode() == '404') {
-            return redirect('/notFoundHttpException');
-        }
-        return parent::render($request, $exception);
+        return redirect()->guest('login');
     }
 
     /**
