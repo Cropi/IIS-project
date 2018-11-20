@@ -48,7 +48,7 @@ class OwnerController extends Controller
             'name' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
             'surname' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
             'personalID' => 'required|min:6|unique:owners|max:20|regex:/(^([0-9A-Z]*)$)/u',
-            'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u',
+            'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
         ];
         $this->validate($request, $rules);
 
@@ -103,7 +103,7 @@ class OwnerController extends Controller
             'name' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
             'surname' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
             'personalID' => 'required|min:6|max:20|regex:/(^([0-9A-Z]*)$)/u',
-            'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u',
+            'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
         ];
         $this->validate($request, $rules);
         if ($owner->personalID != $request->input('personalID')) {
