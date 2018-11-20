@@ -56,7 +56,12 @@ class RegisterController extends Controller
             'name' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-            'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
+            // 'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
+            'country' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
+            'zipCode' => 'max:32|min:5|regex:/(^([0-9]*)$)/u|nullable',
+            'city' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
+            'street' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
+
             'bankAccountNumber' => 'regex:/(^([A-Z0-9]*)$)/u',
             'wage' => 'numeric',
         ]);
@@ -75,10 +80,14 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'role' => $data['role'],
-            'adress' => $data['adress'],
+            // 'adress' => $data['adress'],
+            'country' => $data['country'],
+            'zipCode' => $data['zipCode'],
+            'city' => $data['city'],
+            'street' => $data['street'],
             'bankAccountNumber' => $data['bankAccountNumber'],
             'wage' =>$data['wage'],
-            'adress' => $data['adress'],
+            // 'adress' => $data['adress'],
         ]);
     }
 

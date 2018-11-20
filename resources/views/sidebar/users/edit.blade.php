@@ -57,16 +57,55 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('adress') ? ' has-error' : '' }}">
-                            <label for="adress" class="col-md-4 control-label">Adress *</label>
+                        <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
+                            <label for="country" class="col-md-4 control-label">Country</label>
 
                             <div class="col-md-6">
-                                <input id="adress" type="text" class="form-control" name="adress" value="{{ $user->adress }}">
+                                <input id="country" type="text" class="form-control" name="country" value="{{ $user->country }}">
+                                @if ($errors->has('country'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('country') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
 
-                                @if ($errors->has('adress'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('adress') }}</strong>
-                                    </span>
+                        <div class="form-group{{ $errors->has('zipCode') ? ' has-error' : '' }}">
+                            <label for="zipCode" class="col-md-4 control-label">Zip Code</label>
+
+                            <div class="col-md-6">
+                                <input id="zipCode" type="text" class="form-control" name="zipCode" value="{{ $user->zipCode }}">
+                                @if ($errors->has('zipCode'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('zipCode') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
+                            <label for="city" class="col-md-4 control-label">City</label>
+
+                            <div class="col-md-6">
+                                <input id="city" type="text" class="form-control" name="city" value="{{ $user->city }}">
+                                @if ($errors->has('city'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('city') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <div class="form-group{{ $errors->has('street') ? ' has-error' : '' }}">
+                            <label for="street" class="col-md-4 control-label">Street and number</label>
+
+                            <div class="col-md-6">
+                                <input id="street" type="text" class="form-control" name="street" value="{{ $user->street }}">
+                                @if ($errors->has('street'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('street') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
@@ -86,7 +125,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('wage') ? ' has-error' : '' }}">
-                            <label for="wage" class="col-md-4 control-label">Wage *</label>
+                            <label for="wage" class="col-md-4 control-label">Wage(€) *</label>
 
                             <div class="col-md-6">
                                 <input id="wage" type="text" class="form-control" name="wage" value="{{ $user->wage }}">

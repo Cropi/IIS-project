@@ -85,7 +85,11 @@ class UserController extends Controller
             'name' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
             'email' => 'required|email|max:255',
             'password' => 'required|min:6|confirmed',
-            'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
+            // 'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
+            'country' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
+            'zipCode' => 'max:32|min:5|regex:/(^([0-9]*)$)/u|nullable',
+            'city' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
+            'street' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
             'bankAccountNumber' => 'regex:/(^([A-Z0-9]*)$)/u',
             'wage' => 'numeric',
         ];
@@ -100,7 +104,12 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = $request->input('password') != "" ? bcrypt($request->input('password')) : "" ;
-        $user->adress = $request->input('adress');
+        // $user->adress = $request->input('adress');
+        $user->country = $request->input('country');
+        $user->zipCode = $request->input('zipCode');
+        $user->city = $request->input('city');
+        $user->street = $request->input('street');
+
         $user->bankAccountNumber = $request->input('bankAccountNumber');
         $user->wage = $request->input('wage');
         $user->role = $request->input('role');
@@ -153,7 +162,11 @@ class UserController extends Controller
         $rules = [
             'name' => 'required|max:255|min:2|regex:/(^([a-zA-Z\s]*)$)/u',
             'email' => 'required|email|max:255',
-            'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u',
+            // 'adress' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u',
+            'country' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
+            'zipCode' => 'max:32|min:5|regex:/(^([0-9]*)$)/u|nullable',
+            'city' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
+            'street' => 'max:255|regex:/(^([.,0-9a-zA-Z\s]*)$)/u|nullable',
             'bankAccountNumber' => 'regex:/(^([A-Z0-9]*)$)/u',
             'wage' => 'numeric',
         ];
@@ -167,7 +180,12 @@ class UserController extends Controller
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->adress = $request->input('adress');
+        // $user->adress = $request->input('adress');
+        $user->country = $request->input('country');
+        $user->zipCode = $request->input('zipCode');
+        $user->city = $request->input('city');
+        $user->street = $request->input('street');
+
         $user->wage = $request->input('wage');
         $user->role = $request->input('role');
         $user->bankAccountNumber = $request->input('bankAccountNumber');

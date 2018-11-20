@@ -39,11 +39,13 @@
         <tr>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer">Email</th>
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(2)')" style="cursor:pointer">Name</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(3)')" style="cursor:pointer">Titul</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(4)')" style="cursor:pointer">Role</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(5)')" style="cursor:pointer">Adress</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(6)')" style="cursor:pointer">Account number</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(7)')" style="cursor:pointer">Wage</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(3)')" style="cursor:pointer">Role</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(4)')" style="cursor:pointer">Country</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(5)')" style="cursor:pointer">Zip Code</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(6)')" style="cursor:pointer">City</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(7)')" style="cursor:pointer">Street</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(8)')" style="cursor:pointer">Account number</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(9)')" style="cursor:pointer">Wage (€)</th>
             <th width="0px"></th>
         </tr>
     </thead>
@@ -53,9 +55,11 @@
         <tr class="item">
             <td>{{$user->email}}</td>
             <td>{{$user->name}}</td>
-            <td>Mudr.</td>
             <td>{{$user->role}}</td>
-            <td>{{$user->adress}}</td>
+            <td>{{$user->country}}</td>
+            <td>{{$user->zipCode}}</td>
+            <td>{{$user->city}}</td>
+            <td>{{$user->street}}</td>
             <td>{{$user->bankAccountNumber}}</td>
             <td>{{$user->wage}}</td>
             <td width="2">
