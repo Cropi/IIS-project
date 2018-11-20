@@ -14,6 +14,7 @@ use App\Dosage;
 use App\Owner;
 use App\MedicineType;
 use App\Contraindication;
+use \Datetime;
 
 class TreatmentController extends Controller
 {
@@ -44,8 +45,11 @@ class TreatmentController extends Controller
      */
     public function create()
     {
-
-        return view('sidebar.treatments.create')->with('animals', Animal::get());
+        $data = [
+            'animals' => Animal::get(),
+            'time' => (new DateTime('now'))->format('Y-m-d H:i:s'),
+        ];
+        return view('sidebar.treatments.create')->with('data', $data);
     }
 
     /**

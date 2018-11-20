@@ -29,7 +29,7 @@
 @endif
 
 <h1>System users</h1>
-<p>Your are a system admin so you can change user privileges and informations. You can also create, modify and delete users whenever you want</p>
+<p>Your are a system admin so you can change user privileges and informations. You can also create, modify and delete users whenever you want.</p>
 <br>
 <input class="form-control" id="myInput" type="text" placeholder="Search..">
 <br>

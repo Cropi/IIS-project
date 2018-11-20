@@ -94,7 +94,7 @@
 
 </table>
 
-<p>Note that removed owners can not be restored.</p>
+<p>Note that removed treatments can not be restored.</p>
 </div>
 
 <script>
