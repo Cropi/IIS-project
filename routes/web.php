@@ -20,6 +20,9 @@ Route::get('/{pattern}/{example}', function ($pattern, $example) {
 
 Route::get('/home', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/notFoundHttpException', function () {
+    return view('notFoundHttpException');
+});
 
 Auth::routes();
 
