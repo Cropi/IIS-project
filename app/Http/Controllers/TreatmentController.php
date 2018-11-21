@@ -20,6 +20,7 @@ class TreatmentController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('auth');
         View::share('types', MedicineType::get());
         View::share('contraindications', Contraindication::get());
     }
