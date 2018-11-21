@@ -368,6 +368,7 @@ class ComposerStaticInit3f0292e5546b04dd519e5edc59832e26
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'MedicineDosageTableSeeder' => __DIR__ . '/../..' . '/database/seeds/MedicineDosageTableSeeder.php',
         'MedicineTypeTableSeeder' => __DIR__ . '/../..' . '/database/seeds/MedicineTypeTableSeeder.php',
         'MedicineTypes' => __DIR__ . '/../..' . '/database/migrations/2018_11_17_151906_medicine_types.php',
         'Medicines' => __DIR__ . '/../..' . '/database/migrations/2018_10_05_170630_medicines.php',

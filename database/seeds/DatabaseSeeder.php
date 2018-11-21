@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MedicineTypeTableSeeder::class);
         $this->call(ContraindicationTableSeeder::class);
         $this->call(TreatmentsTableSeeder::class);
+        $this->call(MedicineDosageTableSeeder::class);
     }
 }
