@@ -20,7 +20,9 @@ Route::get('/{pattern}/{example}', function ($pattern, $example) {
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/notFoundHttpException', 'ErrorController@index404')->name('notFoundHttpException');
+Route::get('/notFoundHttpException', 'ErrorController@index404')->name('errors.notFoundHttpException');
+Route::get('/invalidArgumentException', 'ErrorController@invalidArgumentException')->name('errors.invalidArgumentException');
+
 
 Auth::routes();
 

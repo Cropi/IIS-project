@@ -7,6 +7,7 @@ use Response;
 use Auth;
 use Illuminate\Auth\AuthenticationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\InvalidArgumentException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -50,9 +51,9 @@ class Handler extends ExceptionHandler
         if ($exception  instanceof NotFoundHttpException) {
         	return redirect('notFoundHttpException');
         }
-        // if ($exception instanceof InvalidArgumentException) {
-        //     return redirect('notFoundHttpException');
-        // }
+        if ($exception instanceof \InvalidArgumentException) {
+            return redirect('invalidArgumentException');
+        }
 
         return parent::render($request, $exception);
     }
