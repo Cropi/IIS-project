@@ -16,9 +16,9 @@ class AnimalsTableSeeder extends Seeder
         DB::table('animals')->insert(array(
             array(
                 'id'                 => 1,
-                'name'               => 'Mighty',
-                'type'               => 'American bully',
-                'birthday'           => '2005-07-29 20:15:12',
+                'name'               => 'Crash',
+                'type'               => 'Cat',
+                'birthday'           => '2008-07-29',
                 'lastVisit'          => $today->format('Y-m-d H:i:s'),
                 'created_at'         => $today->format('Y-m-d H:i:s'),
                 'updated_at'         => $today->format('Y-m-d H:i:s'),
@@ -30,8 +30,8 @@ class AnimalsTableSeeder extends Seeder
             array(
                 'id'                 => 2,
                 'name'               => 'Ada',
-                'type'               => 'Dalmata',
-                'birthday'           => '2000-07-29 20:15:12',
+                'type'               => 'Dog',
+                'birthday'           => '1996-08-29',
                 'lastVisit'          => $today->format('Y-m-d H:i:s'),
                 'created_at'         => $today->format('Y-m-d H:i:s'),
                 'updated_at'         => $today->format('Y-m-d H:i:s'),
@@ -43,8 +43,8 @@ class AnimalsTableSeeder extends Seeder
             array(
                 'id'                 => 3,
                 'name'               => 'Sanyika',
-                'type'               => 'Dalmata',
-                'birthday'           => '2008-03-29 20:15:12',
+                'type'               => 'Perrot',
+                'birthday'           => '2008-03-29',
                 'lastVisit'          => $today->format('Y-m-d H:i:s'),
                 'created_at'         => $today->format('Y-m-d H:i:s'),
                 'updated_at'         => $today->format('Y-m-d H:i:s'),

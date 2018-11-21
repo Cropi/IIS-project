@@ -17,7 +17,7 @@ class Animals extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('type');
-            $table->DateTime('birthday')->nullable();
+            $table->date('birthday')->nullable();
             $table->DateTime('lastVisit')->nullable();
             $table->integer('owner_id')->unsigned()->nullable();
             $table->timestamps();

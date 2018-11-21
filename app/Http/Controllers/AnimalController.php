@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Animal;
 use App\Owner;
+use \DateTime;
 use DB;
 
 class AnimalController extends Controller
@@ -50,7 +51,7 @@ class AnimalController extends Controller
         $rules = [
             'name' => 'required|max:255',
             'type' => 'required|max:255',
-            'birthday' => 'date_format:Y-m-d H:i:s|nullable',
+            'birthday' => 'date_format:Y-m-d|nullable',
             'lastVisit' => 'date_format:Y-m-d H:i:s|nullable',
         ];
         $this->validate($request, $rules);
@@ -59,6 +60,7 @@ class AnimalController extends Controller
         $animal->name = $request->input('name');
         $animal->type = $request->input('type');
         $animal->birthday = $request->input('birthday');
+        // $animal->birthday = (new DateTime($request->input('birthday')))->format('Y-m-d');
         $animal->lastVisit = $request->input('lastVisit');
         $owner = Owner::find($request->input('owner'));
         $animal->owner()->associate($owner);
@@ -110,7 +112,7 @@ class AnimalController extends Controller
         $rules = [
             'name' => 'required|max:255',
             'type' => 'required|max:255',
-            'birthday' => 'date_format:Y-m-d H:i:s|nullable',
+            'birthday' => 'date_format:Y-m-d|nullable',
             'lastVisit' => 'date_format:Y-m-d H:i:s|nullable',
         ];
         $this->validate($request, $rules);

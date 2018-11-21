@@ -59,7 +59,7 @@
                             <label for="birthday" class="col-md-4 control-label">Birthday</label>
 
                             <div class="col-md-6">
-                                <input id="birthday" type="text" class="form-control" name="birthday" value="{{ old('birthday') }}"placeholder="2009-04-29 07:30:00">
+                                <input id="birthday" type="text" class="form-control" name="birthday" value="{{ old('birthday') }}"placeholder="2009-04-29">
 
                                 @if ($errors->has('birthday'))
                                     <span class="help-block">
@@ -73,7 +73,7 @@
                             <label for="lastVisit" class="col-md-4 control-label">Last Visit</label>
 
                             <div class="col-md-6">
-                                <input id="lastVisit" type="text" class="form-control" name="lastVisit" value="{{ old('lastVisit') }}" placeholder="2018-07-29 07:00:00">
+                                <input id="lastVisit" type="text" class="form-control" name="lastVisit" value="{{ old('lastVisit') }}" placeholder="2018-07-29">
                                 @if ($errors->has('lastVisit'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('lastVisit') }}</strong>
