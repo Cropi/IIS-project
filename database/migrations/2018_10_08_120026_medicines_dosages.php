@@ -24,7 +24,6 @@ class MedicinesDosages extends Migration
             $table->integer('timeToConsume1')->nullable();
             $table->string('timeToConsume2')->nullable();
             $table->timestamps();
-
         });
 
         Schema::table('dosages', function (Blueprint $table){
