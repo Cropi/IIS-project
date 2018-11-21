@@ -48,8 +48,8 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '4',
                 'treatment_id'       => '2',
-                'user_id'            => '1',
-                'user_id_given_by'   => '1',
+                'user_id'            => '2',
+                'user_id_given_by'   => '3',
                 'disease'            => 'tranquilizer',
                 // 'amount1'            => '',
                 // 'amount2'            => '',
@@ -63,7 +63,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '5',
                 'treatment_id'       => '2',
-                'user_id'            => '1',
+                'user_id'            => '4',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'Against pain',
                 'amount1'            => '1',
@@ -79,8 +79,8 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '6',
                 'treatment_id'       => '3',
-                'user_id'            => '1',
-                'user_id_given_by'   => '1',
+                'user_id'            => '5',
+                'user_id_given_by'   => '23',
                 'disease'            => 'against poison',
                 // 'amount1'            => '',
                 // 'amount2'            => '',
@@ -94,7 +94,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '7',
                 'treatment_id'       => '3',
-                'user_id'            => '1',
+                'user_id'            => '6',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'anaesthetic',
                 'amount1'            => '2',
@@ -110,7 +110,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '11',
                 'treatment_id'       => '4',
-                'user_id'            => '1',
+                'user_id'            => '7',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'muscle pain',
                 'amount1'            => '2',
@@ -125,7 +125,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '12',
                 'treatment_id'       => '4',
-                'user_id'            => '1',
+                'user_id'            => '8',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'muscle pain',
                 'amount1'            => '2',
@@ -141,7 +141,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '13',
                 'treatment_id'       => '4',
-                'user_id'            => '1',
+                'user_id'            => '9',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'muscle pain',
                 'amount1'            => '2',
@@ -157,7 +157,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '19',
                 'treatment_id'       => '5',
-                'user_id'            => '1',
+                'user_id'            => '10',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'hearth',
                 'amount1'            => '3',
@@ -172,7 +172,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '20',
                 'treatment_id'       => '5',
-                'user_id'            => '1',
+                'user_id'            => '11',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'hearth',
                 'amount1'            => '4',
@@ -188,7 +188,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '21',
                 'treatment_id'       => '5',
-                'user_id'            => '1',
+                'user_id'            => '12',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'hearth',
                 'amount1'            => '3',
@@ -204,7 +204,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '2',
                 'treatment_id'       => '6',
-                'user_id'            => '1',
+                'user_id'            => '13',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'hearth',
                 'amount1'            => '2',
@@ -220,7 +220,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '2',
                 'treatment_id'       => '6',
-                'user_id'            => '1',
+                'user_id'            => '14',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'hearth',
                 'amount1'            => '2',
@@ -236,7 +236,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '2',
                 'treatment_id'       => '6',
-                'user_id'            => '1',
+                'user_id'            => '15',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'hearth',
                 'amount1'            => '2',
@@ -252,7 +252,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '2',
                 'treatment_id'       => '6',
-                'user_id'            => '1',
+                'user_id'            => '16',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'hearth',
                 'amount1'            => '2',
@@ -269,7 +269,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '7',
                 'treatment_id'       => '7',
-                'user_id'            => '1',
+                'user_id'            => '17',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'hearth',
                 'amount1'            => '2',
@@ -285,7 +285,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '8',
                 'treatment_id'       => '7',
-                'user_id'            => '1',
+                'user_id'            => '18',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'hearth',
                 'amount1'            => '3',
@@ -301,7 +301,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '9',
                 'treatment_id'       => '7',
-                'user_id'            => '1',
+                'user_id'            => '19',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'hearth',
                 'amount1'            => '2',
@@ -317,7 +317,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '6',
                 'treatment_id'       => '8',
-                'user_id'            => '1',
+                'user_id'            => '20',
                 'user_id_given_by'   => '1',
                 'disease'            => 'poison',
                 // 'amount1'            => '2',
@@ -333,7 +333,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '6',
                 'treatment_id'       => '8',
-                'user_id'            => '1',
+                'user_id'            => '21',
                 'user_id_given_by'   => '1',
                 'disease'            => 'poison',
                 // 'amount1'            => '2',
@@ -365,7 +365,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '11',
                 'treatment_id'       => '9',
-                'user_id'            => '1',
+                'user_id'            => '2',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'muscle pain',
                 'amount1'            => '1',
@@ -381,8 +381,8 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '2',
                 'treatment_id'       => '10',
-                'user_id'            => '1',
-                'user_id_given_by'   => '1',
+                'user_id'            => '3',
+                'user_id_given_by'   => '27',
                 'disease'            => 'Diabetes',
                 // 'amount1'            => '1',
                 // 'amount2'            => 'day',
@@ -397,8 +397,8 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '2',
                 'treatment_id'       => '10',
-                'user_id'            => '1',
-                'user_id_given_by'   => '1',
+                'user_id'            => '7',
+                'user_id_given_by'   => '28',
                 'disease'            => 'Diabetes',
                 // 'amount1'            => '1',
                 // 'amount2'            => 'day',
@@ -413,8 +413,8 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '2',
                 'treatment_id'       => '10',
-                'user_id'            => '1',
-                'user_id_given_by'   => '1',
+                'user_id'            => '9',
+                'user_id_given_by'   => '29',
                 'disease'            => 'Diabetes',
                 // 'amount1'            => '1',
                 // 'amount2'            => 'day',
@@ -429,7 +429,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '13',
                 'treatment_id'       => '10',
-                'user_id'            => '1',
+                'user_id'            => '14',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'Diabetes',
                 'amount1'            => '1',
@@ -445,7 +445,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '1',
                 'treatment_id'       => '11',
-                'user_id'            => '1',
+                'user_id'            => '12',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'Diabetes',
                 'amount1'            => '2',
@@ -461,7 +461,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '11',
                 'treatment_id'       => '11',
-                'user_id'            => '1',
+                'user_id'            => '13',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'Diabetes',
                 'amount1'            => '3',
@@ -477,7 +477,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '12',
                 'treatment_id'       => '11',
-                'user_id'            => '1',
+                'user_id'            => '10',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'Diabetes',
                 'amount1'            => '1',
@@ -494,7 +494,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '17',
                 'treatment_id'       => '12',
-                'user_id'            => '1',
+                'user_id'            => '10',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'Diabetes',
                 'amount1'            => '2',
@@ -510,7 +510,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '17',
                 'treatment_id'       => '12',
-                'user_id'            => '1',
+                'user_id'            => '2',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'Diabetes',
                 'amount1'            => '5',
@@ -526,7 +526,7 @@ class MedicineDosageTableSeeder extends Seeder
             array(
                 'medicine_id'        => '17',
                 'treatment_id'       => '12',
-                'user_id'            => '1',
+                'user_id'            => '3',
                 // 'user_id_given_by'   => '1',
                 'disease'            => 'Diabetes',
                 'amount1'            => '1',

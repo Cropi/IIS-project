@@ -50,6 +50,9 @@ class Handler extends ExceptionHandler
         if ($exception  instanceof NotFoundHttpException) {
         	return redirect('notFoundHttpException');
         }
+        // if ($exception instanceof InvalidArgumentException) {
+        //     return redirect('notFoundHttpException');
+        // }
 
         return parent::render($request, $exception);
     }

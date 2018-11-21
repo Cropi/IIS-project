@@ -21,6 +21,7 @@ class TreatmentController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('veterinarian')->except(['index', 'show']);
         View::share('types', MedicineType::get());
         View::share('contraindications', Contraindication::get());
     }
