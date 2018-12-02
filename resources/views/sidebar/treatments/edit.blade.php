@@ -66,7 +66,7 @@
                             <label for="created" class="col-md-4 control-label">Veterinarian</label>
 
                             <div class="col-md-6">
-                                <input id="created" type="text" class="form-control" name="price" value="{{$data['treatment']->user->name}}" disabled>
+                                <input id="created" type="text" class="form-control" name="price" value="{{$data['treatment']->user != NULL ? $data['treatment']->user->name : 'Deleted user' }}" disabled>
                             </div>
                         </div>
 

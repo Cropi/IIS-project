@@ -17,7 +17,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div id="brand">
-            <img src="" alt="Veterinary Information System">
+              <h1> Veterinary Clinic System</h1>
           </div><!--/#brand-->
         </div><!--/.col-*-->
         <div class="col-sm-7 col-md-6 col-lg-5 login"> <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
@@ -52,7 +52,8 @@
         </form></div><!--/.col-*-->
         <div class="col-sm-5 col-md-6 col-lg-7 details">
           <p><strong>Welcome to Veterinary Information System | School projekt!</strong>
-            This is placeholder text, only. Use this area to place any information or introductory message about your application that may be relevant for users. For example, you might include news or information about the latest release of your product here&mdash;such as a version number.</p>
+         Veterinary information system (VIS) is an element of health informatics that focuses mainly on the administrational needs of hospitals. Designed to manage all the aspects of a hospital's operation, such as medical, administrative, financial, and legal issues and the corresponding processing of services. It also provides a common source of information about a patient's health history. The system has to keep data in a secure place and controls who can reach the data in certain circumstances.
+              &mdash;such as a version number.</p>
         </div><!--/.col-*-->
       </div><!--/.row-->
     </div><!--/.container-->

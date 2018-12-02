@@ -72,7 +72,7 @@
             <td>{{$treatment->animal != NULL ? $treatment->animal->name : "-"}}</td>
             <td>{{$treatment->state}}</td>
             <td>{{$treatment->price}}</td>
-            <td>{{$treatment->user->name}}</td>
+            <td>{{$treatment->user != NULL ? $treatment->user->name : "Deleted"}}</td>
             <td>{{$treatment->startDate}}</td>
             <td width="2">
                 <div class="dropdown table-view-pf-actions">

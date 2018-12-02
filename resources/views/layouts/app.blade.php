@@ -46,7 +46,7 @@
             <!-- Left side of navbar -->
             <ul class="nav navbar-nav navbar-left navbar-iconic">
                 <li>
-                    <a href="#">
+                    <a href="/home">
                         {{ config('app.name', 'Veterinary IS') }}
                     </a>
                 </li>
