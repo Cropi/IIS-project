@@ -1,3 +1,6 @@
+ATTENTION: For demonstration purpose this site is also available on the following link:
+LINK: [veterinary clinic](http://176.116.112.97/login).
+
 Laravel + Patternfly
 ===========
 
@@ -35,7 +38,13 @@ Since this project originated in order to have a quickstart of laravel + pattern
 - Run: composer install
 - Run: cp .env.example .env 
 - Run: php artisan key:generate
-- Configure the Laravel environment file (database name, user, host).
-- Run php artisan migrate.
-- Go to your browser and to your configured domain you should see the laravel welcome view.
-- Go to http://{your_domain}/register and register a new user to login and see the home
+- `mysql -u root -p # run it as a supervisor`
+- `CREATE DATABASE IIS`
+- Configure the Laravel '.env' environment file (database name, user, host).
+  - DB_DATABASE=IIS
+  - DB_USERNAME=root
+  - DB_PASSWORD=root
+- `php artisan migrate`
+- `php artisan db:seed`
+- If everything went well you can run the server on your localhost by `php artisan serve`
+- Open your localhost to see the welcome page. For example: http://127.0.0.1:8000.
